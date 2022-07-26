@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/images/logo/logo-v.jpeg">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Violeta - Vinos boutique</title>
+</head>
+<body>
+    <!---logo y menu-->
+    <header>
+        <div id="header__completo">
+            <h3 ><a href="index.html"><img id="header__logo" src="../assets/images/logo/logo-chico.png" alt="Imagen no disponible"></a></h3>
+            <div class="header__buttons">
+                <form action="" method="get" enctype="multipart/form-data">
+                    <input class="texto" type="text" name="buscar" id="buscar" placeholder="Buscar...">
+                </form>
+                <img class="header__item" src="../assets/images/login-logo.png" alt="">
+                <img class="header__item" src="../assets/images/carrito-logo.png" alt="">
+            </div>
+        </div>
+        <nav>
+            <ul id="menubar">
+                <li><a href="../index.html" class="menubar__link">Inicio</a></li>
+                <li><a href="club.html" class="menubar__link">Club de vinos</a></li>
+                <li><a href="catas.html" class="menubar__link">Eventos</a></li>
+                <li><a href="tienda.html" class="menubar__link">Tienda</a></li>
+                <li><a href="contacto.html" class="menubar__link">Contacto</a></li>
+            </ul>
+            <div id="menuMobile">
+                <!--<ul>
+                    <li>Inicio</li>
+                    <li>Club</li>
+                    <li>Catas</li>
+                    <li>Tienda</li>
+                    <li>Contacto</li>
+                </ul>-->
+                <form action="" method="get" enctype="multipart/form-data">
+                    <input class="texto" type="text" name="buscarMobile" id="buscar" placeholder="Buscar...">
+                </form>
+            </div>
+        </nav>
+    </header>
+    <!--cierre del menu-->
+    <section>
+        <img class="section__banner" src="../assets/images/banners/banner-top.jpg" alt="">
+        <article>
+            <h3>Formulario de contacto</h3>
+            <form action="" method="post" enctype="text/plain">
+                <div class="formContacto"></div>
+                    <fieldset>
+                        <legend>Completá el formulario y nos contactaremos a la brevedad:</legend>
+                        <div>
+                            <fieldset class="basicForm fieldDatosPersonales fieldContacto">
+                                <label for="nombre">Nombre: </label>
+                                <input class="texto" type="text" name="nombre" placeholder="Tu nombre" required>
+                                <label for="email">Email: </label>
+                                <input class="texto" type="email" name="email" placeholder="Tu email" required>
+                                <label for="telefono">Teléfono: </label>
+                                <input class="texto" type="text" name="telefono" placeholder="Tu teléfono" required>
+                            </fieldset>
+                            <label for="tipoconsulta">¿Por qué nos contactas?</label>
+                            <select name="tipoconsulta">
+                                <option value="info">Información general</option>
+                                <option value="catas">Catas en eventos</option>
+                                <option value="club">Club de vinos</option>
+                            </select>
+                            <br>
+                            <label for="consulta">Consulta:</label>
+                            <br>
+                            <textarea class="form__textarea" name="consulta" id="consulta"></textarea>
+                        </div>
+                        <div>
+                            <label for="contactovia">¿Cómo querés que te contactemos?</label>
+                            <br>
+                            <input type="radio" id="telefono" name="contactovia" value="Teléfono">
+                            <label for="telefono">Teléfono</label>
+                            <input type="radio" id="mail" name="contactovia" value="Mail">
+                            <label for="mail">Email</label>
+                            <br>
+                            <input type="checkbox" name="suscribirse">Deseo recibir novedades por mail
+                            <br>
+                            <input class="boton-envio" type="submit" name="enviar" value="Enviar">
+                            <input class="boton-envio" type="reset" name="resetear" value="Borrar todo">
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </article>
+    </section>
+    <!--pie de pagina-->
+    <footer>
+        <div class="footer__contenido">
+            <h4>Datos de contacto</h4>
+            <table>
+                <tr><td>11 1234 5678</td></tr>
+                <tr><td>violeta_vinos@gmail.com</td></tr>
+                <tr><td>Canning, Buenos Aires</td></tr>
+            </table>
+        </div>
+        <div class="footer__contenido">
+            <h4>Redes sociales</h4>
+            <div class="footer__contenido__redes">
+                <a href="https://www.instagram.com/violeta.vinos/?hl=es" target="_blank"><img class="footer__item" src="../assets/images/instagram-logo.png"></a>
+                <a href="https://m.facebook.com/violeta.vinos/?ref=bookmarks" target="_blank"><img class="footer__item" src="../assets/images/facebook-logo.png"></a>
+                <a href="https://www.youtube.com/watch?v=VSIMmQfeHZI"><img class="footer__item" src="../assets/images/youtube-logo.png"></a>
+            </div>
+        </div>
+        <div class="footer__contenido">
+            <h4>Suscripción Newsletter</h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                <label for="email_susc">Suscríbete para recibir nuestras novedades:</label>
+                <br>
+                <input class="texto" type="email" name="email_susc">
+                <input class="boton-envio" type="submit" name="suscribir" value="Suscribirme">
+            </form>
+        </div>
+    </footer>
+    <!--cierre de pie de pagina-->
+</body>
+</html>

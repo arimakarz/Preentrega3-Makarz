@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/logo/logo-v.jpeg">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Violeta - Vinos boutique</title>
+</head>
+<body>
+    <div id="main">
+    <!---logo y menu-->
+        <header>
+            <div id="header__completo">
+                <h3><a href="index.html"><img id="header__logo" src="assets/images/logo/logo-chico.png" alt="Imagen no disponible"></a></h3>
+                <div class="header__buttons">
+                    <form action="" method="get" enctype="multipart/form-data">
+                        <input class="texto" type="text" name="buscar" id="buscar" placeholder="Buscar...">
+                    </form>
+                    <img class="header__item" src="assets/images/login-logo.png" alt="">
+                    <img class="header__item" src="assets/images/carrito-logo.png" alt="">
+                </div>
+            </div>
+            <nav>
+                <ul id="menubar">
+                    <li><a href="index.html" class="menubar__link">Inicio</a></li>
+                    <li><a href="pages/club.html" class="menubar__link">Club de vinos</a></li>
+                    <li><a href="pages/catas.html" class="menubar__link">Eventos</a></li>
+                    <li><a href="pages/tienda.html" class="menubar__link">Tienda</a></li>
+                    <li><a href="pages/contacto.html" class="menubar__link">Contacto</a></li>
+                </ul>
+                <div id="menuMobile">
+                    <!--<ul>
+                        <li>Inicio</li>
+                        <li>Club</li>
+                        <li>Catas</li>
+                        <li>Tienda</li>
+                        <li>Contacto</li>
+                    </ul>-->
+                    <form action="" method="get" enctype="multipart/form-data">
+                        <input class="texto" type="text" name="buscarMobile" id="buscar" placeholder="Buscar...">
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <!--cierre del menu-->
+        <section>
+            <img class="body__img-portada" src="assets/images/imagen-portada.jpeg" alt="Reel de imagenes">
+            <article>
+                <h3>¡Destacados de la semana!</h3>
+                <!--los productos se muestran en fila--> 
+                <div id="productosDestacados">
+                    <table>
+                        <tr>
+                            <td>
+                                <img class="productosDestacados__image" src="assets/images/productos/producto1.png" alt="Imagen no disponible">
+                            </td>
+                            <td>
+                                <img class="productosDestacados__image" src="assets/images/productos/producto2.png" alt="Imagen no disponible">
+                            </td>
+                            <td>
+                                <img class="productosDestacados__image" src="assets/images/productos/producto3.png" alt="Imagen no disponible">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="productosDestacados__nombre">Luigi Bosca Cabernet Sauvignon</td>
+                            <td class="productosDestacados__nombre">Jorge Rubio Gran Reserva Malbec</td>
+                            <td class="productosDestacados__nombre">Jorge Rubio Privado Reserva Malbec</td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h3>Próximos eventos</h3>
+                <div id="proximosEventos">
+                    <table id="eventos" cellspacing="5" cellpadding="5">
+                        <!--<th></th>
+                        <th>Fecha</th>
+                        <th>Lugar</th>
+                        <th>Descripción del evento</th>
+                        <th></th>-->
+                        <tr>
+                            <td class="eventos__fecha">10 JUL</td>
+                            <td class="eventos__descripcion">Cheese & Wine</td>
+                            <td class="eventos__ubicacion">Ver evento - Link a flyer del evento</td>
+                            <td><a href = "mailto: violetavinos@gmail.com?subject = Reservar cupo&body = ¡Hola! Quiero reservar un cupo para el evento...">¡Reservá tu lugar!</a></td>
+                        </tr>
+                        <tr>
+                            <td class="eventos__fecha">06 AGO</td>
+                            <td class="eventos__descripcion">Cata en casa</td>
+                            <td class="eventos__ubicacion" >Ver evento - Link a flyer del evento</td>
+                            <td><a href = "mailto: violetavinos@gmail.com?subject = Reservar cupo&body = ¡Hola! Quiero reservar un cupo para el evento...">¡Reservá tu lugar!</a></td>
+                        </tr>
+                    </table>
+                    <table id="eventos__small">
+                        <tr>
+                            <td class="eventos__fecha">10 JUL</td>
+                            <td class="eventos__descripcion">Cheese & Wine</td>
+                        </tr>
+                        <tr>
+                            <td class="eventos__fecha">06 AGO</td>
+                            <td class="eventos__descripcion">Cata en casa</td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+        <!--pie de pagina-->
+        <footer>
+            <div class="footer__contenido">
+                <h4>Datos de contacto</h4>
+                <table>
+                    <tr><td>11 1234 5678</td></tr>
+                    <tr><td>violeta_vinos@gmail.com</td></tr>
+                    <tr><td>Canning, Buenos Aires</td></tr>
+                </table>
+            </div>
+            <div class="footer__contenido">
+                <h4>Redes sociales</h4>
+                <div class="footer__contenido__redes">
+                    <a href="https://www.instagram.com/violeta.vinos/?hl=es" target="_blank"><img class="footer__item" src="assets/images/instagram-logo.png"></a>
+                    <a href="https://m.facebook.com/violeta.vinos/?ref=bookmarks" target="_blank"><img class="footer__item" src="assets/images/facebook-logo.png"></a>
+                    <a href="https://www.youtube.com/watch?v=VSIMmQfeHZI"><img class="footer__item" src="assets/images/youtube-logo.png"></a>
+                </div>
+            </div>
+            <div class="footer__contenido">
+                <h4>Suscripción Newsletter</h4>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label for="email_susc">Suscríbete para recibir nuestras novedades:</label>
+                    <br>
+                    <input class="texto" type="email" name="email_susc">
+                    <input class="boton-envio" type="submit" name="suscribir" value="Suscribirme">
+                </form>
+            </div>
+        </footer>
+        <!--cierre de pie de pagina-->
+    </div>
+</body>
+</html>
