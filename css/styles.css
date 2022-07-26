@@ -331,6 +331,11 @@ nav ul li{
 .body__img-portada{
     width: 40%;
     opacity: 85%;
+    /*animation-name: transparencia;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-delay: 0s;*/
 }
 
 h4{
@@ -357,6 +362,11 @@ section h3{
     font-family: 'Merienda', cursive;
     margin-top: 15px;
     margin-bottom: 15px;
+    animation-name: transparencia;
+    animation-iteration-count: 2;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+    animation-delay: 0s;
 }
 
 section ol li{
@@ -575,6 +585,12 @@ input .boton-envio{
     font-size: 14px;
     margin: 5px;
     border-radius: 5px;
+    transition: all 1s;
+}
+
+.texto:focus{
+    height: 24px;
+    font-size: 16px;
 }
 
 /* Tienda de productos */
@@ -613,3 +629,21 @@ input .boton-envio{
 
 
 /* --- Fin Eventos --- */
+
+
+
+/* --- Keyframes --- */
+@keyframes transparencia {
+    0%{
+        opacity: 85%;
+        font-size: 18px;
+    }
+    50%{
+        opacity: 55%;
+        font-size: 20px;
+    }
+    100%{
+        opacity: 85%;
+        font-size: 18px;
+    }
+}
