@@ -429,12 +429,24 @@ section article table{
     background-color: #451C17;
     color: white;
     border-color: white;
+    transition: all 1s;
+}
+
+.eventos__fecha:hover{
+    background-color: rgb(234, 210, 172);
+    color: black;
 }
 
 .eventos__descripcion{
     width: 250px;
     background-color: #451C17;
     color: white;
+    transition: all 1s;
+}
+
+.eventos__descripcion:hover{
+    background-color: rgb(234, 210, 172);
+    color: black;
 }
 
 .eventos__ubicacion{
