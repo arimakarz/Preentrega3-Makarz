@@ -64,20 +64,31 @@ body{
         flex-direction: column;
     }
 
+    .footer__contenido{
+        text-align: left;
+    }
+
+    .footer__contenido__news, 
+    #footer__emailLabel{
+        text-align: left;
+    }
+
     #eventos__small{
         display: block;
     }
 
-    #menuMobile{
+    /*#menuMobile{
         display: flex;
         justify-content: flex-end;
+    }*/
+
+    #menubar{
+        height: auto;
     }
 
     #eventos{
         display: none;
     }
-
-    /*#menubar{display:none;}*/
 
     .eventos__fecha{
         width: 30px;
@@ -103,6 +114,7 @@ body{
         grid-template-rows: repeat(4, auto);
         width: 100%;
         margin: 25px 5px;
+        justify-content: center;
     }
 
     #clubDeVinos{
@@ -133,6 +145,16 @@ body{
     .form__textarea{
         width: 280px;
         height: 80px;
+    }
+
+    #carrousel__small{
+        display: block;
+        width: auto;
+        margin: 10px 0px;
+    }
+
+    #carrousel__large{
+        display: none;
     }
 }
 /* --- Fin Mobile --- */
@@ -185,7 +207,7 @@ body{
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-evenly;
-        margin-left: 25%;
+        margin-left: 20%;
         align-items: center;
     }
 
@@ -207,6 +229,18 @@ body{
         align-items: center;
     }
 
+    .footer__contenido{
+        text-align: center;
+    }
+
+    .footer__contenido__datos{
+        text-align: left;
+    }
+    
+    .footer__contenido__news{
+        text-align: right;
+    }
+
     #eventos__small,
     #menuMobile{
         display: none;
@@ -215,6 +249,21 @@ body{
     #eventos, 
     #menubar{
         display: block;
+    }
+
+    .navbar{
+        display: flex;
+    }
+
+    .navbar-nav{
+        margin-left: 25%;
+    }
+
+    #menubar{
+        display: inline-block;
+        height: 45px;
+        align-content: center;
+        justify-content: center;
     }
 
     .eventos__fecha{
@@ -275,6 +324,14 @@ body{
         width: 450px;
         height: 100px;
     }
+
+    #carrousel__small{
+        display: none;
+    }
+
+    #carrousel__large{
+        display: block;
+    }
 }
 
 /* --- Fin Desktop --- */
@@ -297,9 +354,22 @@ body{
     margin: 0px 5px;
 }
 
+.navbar{
+    padding: 0px;
+}
+
+.navbar-toggler{
+    border-radius: 0%;
+    padding: 5px;
+    margin: 3px;
+    background-color: white;
+    border-radius: 20%;
+}
+
 #menubar{
     text-align: center;
     padding-top: 1px;
+    background-color: black;
 }
 
 .menubar__link{
@@ -307,14 +377,13 @@ body{
     font-weight: bold;
     text-decoration: none;
     color: white;
-    padding-right: 10px;
+    padding: 0px 0px 0px 10px;
 }
 
-#menuMobile,
-#menubar{
-    background-color: black;
-    height: 35px;
+.menubar__link:hover{
+    color: white;
 }
+
 /*-----Fin del diseño del header-----*/
 
 ul{
@@ -424,6 +493,10 @@ section article table{
     border-spacing: 1px 15px;
 }
 
+.eventos__row{
+    border-spacing: 3px;
+}
+
 .eventos__fecha{
     width: 100px;
     background-color: #451C17;
@@ -471,8 +544,7 @@ footer{
     padding: 5px 20px;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
-
+    text-align: center;
 }
 
 footer h4{
@@ -498,6 +570,12 @@ fieldset{
     width: fit-content;
     margin: 20px auto;
     padding: 0px 5px 5px 5px;
+}
+
+legend{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    float:none;   
 }
 
 fieldset select option{
@@ -582,6 +660,18 @@ input .boton-envio{
     color: black;
 }
 
+.boton-buscar{
+    width: auto;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    padding-bottom: 25px;
+}
+
 .boton-addcart:hover{
     background-color: black;
     color: white;
@@ -592,7 +682,7 @@ input .boton-envio{
 /* --- Fin Botones --- */
 
 .texto{
-    height: 20px;
+    height: 26px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     margin: 5px;
@@ -614,7 +704,7 @@ input .boton-envio{
 
 .listadoProductos__producto{
     justify-content: center;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 /*.listadoProductos__producto:hover{
@@ -623,24 +713,62 @@ input .boton-envio{
     transform: scale(1.2);
 }*/
 
-.producto__img{
+/*.producto__img{
     width: 120px;
 }
 
 .producto__img:hover{
-    /*background-color: lightgray;*/
+    /*background-color: lightgray;
     -webkit-transform: scale(1, 1.2);
     transform: scale(1, 1.2);
+}*/
+
+.card{
+    border: none;
+}
+
+.card:hover{
+    /*background-color: lightgray;*/
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    font-weight: bold;
+    font-size: 16px;
 }
 
 /* Fin de Tienda de productos */
 
 
-/* --- Eventos --- */
+/* --- Carrousel de imágenes --- */
+.carrousel__eventos{
+    text-align: center;
+}
 
+.carrousel__imagen{
+    width: 150px;
+    opacity: 70%;
+    border-color: white;
+    -webkit-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+    transition: all 1s;
+}
 
+.carrousel__imagen:hover{
+    opacity: 100%;
+}
 
-/* --- Fin Eventos --- */
+.carrousel__imagen-lg{
+    width: 450px;
+}
+
+/* --- Fin Carrousel de imágenes --- */
 
 
 
