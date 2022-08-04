@@ -1,710 +1,621 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:wght@100;200&display=swap');
-
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
-header{
-    grid-area: "header";
-    background-color: rgb(234, 210, 172);
-    position: sticky;
-    z-index: 999; /*corregir*/
-    top: 1px;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    width: auto;
-}
-
-body{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin: 0px;
-    padding: 0px;
-}
-
-/* ---Mobile--- */
-@media screen and (min-width: 320px){
-    #main{
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
-        row-gap: 10px;
-        grid-area:
-        "header"
-        "section"
-        "footer";
-    }
-
-    header{
-        justify-content: space-around;
-    }
-
-    #header__completo{
-        align-items: center;
-    }
-
-    #header__logo{
-        width: 60%;
-    }
-
-    .header__buttons{
-        display: none;
-    }
-
-    section{
-        margin-bottom: 10px;
-    }
-
-    footer{
-        flex-direction: column;
-    }
-
-    .footer__contenido{
-        text-align: left;
-    }
-
-    .footer__contenido__news, 
-    #footer__emailLabel{
-        text-align: left;
-    }
-
-    #eventos__small{
-        display: block;
-    }
-
-    /*#menuMobile{
-        display: flex;
-        justify-content: flex-end;
-    }*/
-
-    #menubar{
-        height: auto;
-    }
-
-    #eventos{
-        display: none;
-    }
-
-    .eventos__fecha{
-        width: 30px;
-        font-size: 16px; 
-    }
-    
-    .eventos__descripcion{
-        width: auto;
-        font-size: 18px;
-    }
-    
-    .eventos__ubicacion{
-        width: 60px;
-    }
-
-    .productosDestacados__nombre{
-        width: 100px;
-        font-size: 12px;
-    }
-
-    #listadoProductos{
-        grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(4, auto);
-        width: 100%;
-        margin: 25px 5px;
-        justify-content: center;
-    }
-
-    #clubDeVinos{
-        align-content: center;
-    }
-
-    #clubDeVinos__video{
-        width: 300px;
-    }
-
-    .clubDeVinos__imgBig{
-        display: block;
-        width: 350px;
-    }
-
-    .clubDeVinos__img{
-        display: none;
-    }
-
-    fieldset #comentarios{
-        width: 324px;
-    }
-
-    .evento__imgEvento{
-        width: 300px;
-    }
-
-    .form__textarea{
-        width: 280px;
-        height: 80px;
-    }
-
-    #carrousel__small{
-        display: block;
-        width: auto;
-        margin: 10px 0px;
-    }
-
-    #carrousel__large{
-        display: none;
-    }
-}
-/* --- Fin Mobile --- */
-
-/* --- Ipad --- */
-
-@media screen and (min-width: 768px){
-    #listadoProductos{
-        grid-template-columns: repeat(3, auto);
-        grid-template-rows: repeat(3, auto);
-        width: 100%;
-        margin: 20px 5px;
-    }
-
-    #clubDeVinos{
-        display: flex;
-        flex-direction: row;
-        height: auto;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .clubDeVinos__img{
-        display: inline-block;
-        align-items: baseline;
-        width: 400px;
-    }
-
-    .clubDeVinos__imgBig{
-        display: none;
-    }
-}
-
-/* --- Fin Ipad --- */
-
-/* --- Desktop --- */
-@media screen and (min-width: 1200px){
-    #main{
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
-        row-gap: 10px;
-        grid-area:
-        "header"
-        "section"
-        "footer";
-    }
-
-    #header__completo{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-evenly;
-        margin-left: 20%;
-        align-items: center;
-    }
-
-    #header__logo{
-        width: 50%;
-    }
-
-    .header__buttons{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-items: center;
-        margin: 0px 25px 10px 0px;
-    }
-
-    footer{
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .footer__contenido{
-        text-align: center;
-    }
-
-    .footer__contenido__datos{
-        text-align: left;
-    }
-    
-    .footer__contenido__news{
-        text-align: right;
-    }
-
-    #eventos__small,
-    #menuMobile{
-        display: none;
-    }
-
-    #eventos, 
-    #menubar{
-        display: block;
-    }
-
-    .navbar{
-        display: flex;
-    }
-
-    .navbar-nav{
-        margin-left: 25%;
-    }
-
-    #menubar{
-        display: inline-block;
-        height: 45px;
-        align-content: center;
-        justify-content: center;
-    }
-
-    .eventos__fecha{
-        width: 100px;
-        font-size: 30px; 
-    }
-    
-    .eventos__descripcion{
-        width: 250px;
-        font-size: 24px;
-    }
-    
-    .eventos__ubicacion{
-        width: 180px;
-    }
-
-    .productosDestacados__nombre{
-        width: 170px;
-        font-size: 14px;
-    }
-
-    #listadoProductos{
-        grid-template-columns: repeat(4, auto);
-        grid-template-rows: repeat(2, auto);
-        width: 50%;
-        margin-left: 25%;
-        margin-top: 25px;
-    }
-
-    #clubDeVinos{
-        display: flex;
-        flex-direction: row;
-        height: auto;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /*#clubDeVinos__video{
-        width: 500px;
-        height: 300px;
-    }*/
-
-    .clubDeVinos__img{
-        display: inline-block;
-        align-items: baseline;
-        width: 450px;
-    }
-
-    .clubDeVinos__imgBig{
-        display: none;
-    }
-
-    .evento__imgEvento{
-        width: 350px;
-    }
-
-    .form__textarea{
-        width: 450px;
-        height: 100px;
-    }
-
-    #carrousel__small{
-        display: none;
-    }
-
-    #carrousel__large{
-        display: block;
-    }
-}
-
-/* --- Fin Desktop --- */
-
-/*----Inicio diseño del header-----*/
-/*#header__completo{
-    display: flex;
-    text-align: center;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-}*/
-
-#header__logo{
-    text-align: center;
-}
-
-.header__item{
-    width: 30px;
-    margin: 0px 5px;
-}
-
-.navbar{
-    padding: 0px;
-}
-
-.navbar-toggler{
-    border-radius: 0%;
-    padding: 5px;
-    margin: 3px;
-    background-color: white;
-    border-radius: 20%;
-}
-
-#menubar{
-    text-align: center;
-    padding-top: 1px;
-    background-color: black;
-}
-
-.menubar__link{
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    padding: 0px 0px 0px 10px;
-}
-
-.menubar__link:hover{
-    color: white;
-}
-
-/*-----Fin del diseño del header-----*/
-
-ul{
-    list-style-type: none;
-    text-transform: uppercase;
-}
-
-nav ul li{
-    display: inline;
-    color: white;
-    margin: 10px 5px;
-}
-
-.body__img-portada{
-    width: 40%;
-    opacity: 85%;
-    /*animation-name: transparencia;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease;
-    animation-duration: 3s;
-    animation-delay: 0s;*/
-}
-
-h4{
-    font-weight: bold;
-}
-
-/*----Section----*/
-section{
-    grid-area: "section";
-    text-align: center;
-}
-
-.section__banner{
-    background-repeat: no-repeat;
-    width: 100%;
-}
-
-section h3{
-    color: #451C17;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-family: 'Merienda', cursive;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    animation-name: transparencia;
-    animation-iteration-count: 2;
-    animation-timing-function: ease;
-    animation-duration: 2s;
-    animation-delay: 0s;
-}
-
-section ol li{
-    display: inline;
-    background-color: rgb(234, 210, 172);
-}
-
-section article table{
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/*----Fin Section----*/
-
-/* Prodcuctos destacados: index */
-#productosDestacados{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.productosDestacados__nombre{
-    text-align: center;
-    vertical-align: bottom;
-}
-
-.productosDestacados__image{
-    width: 80%;
-    transition: width 0.5s;
-    padding: 5px;
-}
-
-.productosDestacados__image:hover{
-    width: 90%;
-}
-
-/* Eventos destacados: index */
-
-#proximosEventos{
-    display: flex;
-    justify-content: center;
-}
-
-#eventos,
-#eventos__small{
-    font-weight: bold;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin-bottom: 0px;
-    padding-bottom: 10px;
-}
-
-#eventos__small{
-    border-spacing: 1px 15px;
-}
-
-.eventos__row{
-    border-spacing: 3px;
-}
-
-.eventos__fecha{
-    width: 100px;
-    background-color: #451C17;
-    color: white;
-    border-color: white;
-    transition: all 1s;
-}
-
-.eventos__fecha:hover{
-    background-color: rgb(234, 210, 172);
-    color: black;
-}
-
-.eventos__descripcion{
-    width: 250px;
-    background-color: #451C17;
-    color: white;
-    transition: all 1s;
-}
-
-.eventos__descripcion:hover{
-    background-color: rgb(234, 210, 172);
-    color: black;
-}
-
-.eventos__ubicacion{
-    width: 180px;
-}
-
-.evento__imgEvento{
-    margin-bottom: 15px;
-    transition: width 1s;
-}
-
-.evento__imgEvento:hover{
-    width: 450px;
-}
-
-/* Fin eventos destacados*/
-
-/*----Inicio diseño de footer----*/
-footer{
-    grid-area: "footer";
-    background-color: rgb(234, 210, 172);
-    padding: 5px 20px;
-    display: flex;
-    flex-wrap: nowrap;
-    text-align: center;
-}
-
-footer h4{
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.footer__item{
-    height: 30px;
-    margin: 0px 5px;
-}
-
-.footer__contenido{
-    margin: 10px 0px;
-}
-
-/* --- Fin de diseño de footer --- */
-
-/* --- Formulario --- */
-fieldset{
-    line-height: 30px;
-    width: fit-content;
-    margin: 20px auto;
-    padding: 0px 5px 5px 5px;
-}
-
-legend{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    float:none;   
-}
-
-fieldset select option{
-    height: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-}
-
-.formContacto{
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.form__textarea{
-    resize: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-}
-
-.basicForm{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    "label input";
-}
-
-.fieldDomicilio{
-    grid-template-rows: repeat(7, auto);
-}
-
-.fieldDatosPersonales{
-    grid-template-rows: repeat(3, auto);
-}
-
-.fieldContacto{
-    border: none;
-}
-
-label{
-    grid-column: 1;
-    text-align: right;
-}
-
-input .texto{
-    grid-area: input;
-}
-
-input .boton-envio{
-    grid-area: submit;
-}
-
-/* --- Fin diseño formulario ---*/
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:wght@100;200&display=swap");
 /* --- Botones --- */
-.boton-envio{
-    width: 100px;
-    height: 25px;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    margin-bottom: 25px;
+.boton-envio {
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  margin-bottom: 25px;
+}
+.boton-envio:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+  border-style: solid;
 }
 
-.boton-envio:hover{
-    background-color: black;
-    color: white;
-    border-color: black;
-    border-style: solid;
+.boton-addcart {
+  width: 120px;
+  height: 25px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+.boton-addcart:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+  border-style: solid;
 }
 
-.boton-addcart{
-    width: 120px;
-    height: 25px;
-    text-align: center;
-    font-size: 12px;
-    border-radius: 8px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
+.boton-buscar {
+  width: auto;
+  height: 25px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  padding-bottom: 25px;
 }
-
-.boton-buscar{
-    width: auto;
-    height: 25px;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    padding-bottom: 25px;
-}
-
-.boton-addcart:hover{
-    background-color: black;
-    color: white;
-    border-color: black;
-    border-style: solid;
+.boton-buscar:hover {
+  background-color: grey;
+  color: white;
+  border-color: black;
 }
 
 /* --- Fin Botones --- */
-
-.texto{
-    height: 26px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    margin: 5px;
-    border-radius: 5px;
-    transition: all 1s;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.texto:focus{
-    height: 24px;
+header {
+  grid-area: "header";
+  background-color: rgb(234, 210, 172);
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 999; /*corregir*/
+  top: 1px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  width: auto;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* ---Mobile--- */
+@media screen and (min-width: 320px) {
+  #main {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    row-gap: 10px;
+    grid-area: "header" "section" "footer";
+  }
+  header {
+    justify-content: space-around;
+  }
+  #header__completo {
+    align-items: center;
+  }
+  #header__logo {
+    width: 60%;
+  }
+  .header__buttons {
+    display: none;
+  }
+  section {
+    margin-bottom: 10px;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .footer__contenido {
+    text-align: left;
+  }
+  .footer__contenido__news,
+#footer__emailLabel {
+    text-align: left;
+  }
+  #eventos__small {
+    display: block;
+  }
+  /*#menuMobile{
+      display: flex;
+      justify-content: flex-end;
+  }*/
+  #menubar {
+    height: auto;
+  }
+  #eventos {
+    display: none;
+  }
+  .eventos__fecha {
+    width: 30px;
     font-size: 16px;
+  }
+  .eventos__descripcion {
+    width: auto;
+    font-size: 18px;
+  }
+  .eventos__ubicacion {
+    width: 60px;
+  }
+  .productosDestacados__nombre {
+    width: 100px;
+    font-size: 12px;
+  }
+  #listadoProductos {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    width: 100%;
+    margin: 25px 5px;
+    justify-content: center;
+  }
+  #clubDeVinos {
+    align-content: center;
+  }
+  #clubDeVinos__video {
+    width: 300px;
+  }
+  .clubDeVinos__imgBig {
+    display: block;
+    width: 350px;
+  }
+  .clubDeVinos__img {
+    display: none;
+  }
+  fieldset #comentarios {
+    width: 324px;
+  }
+  .evento__imgEvento {
+    width: 300px;
+  }
+  .form__textarea {
+    width: 280px;
+    height: 80px;
+  }
+  #carrousel__small {
+    display: block;
+    width: auto;
+    margin: 10px 0px;
+  }
+  #carrousel__large {
+    display: none;
+  }
+}
+/* --- Fin Mobile --- */
+/* --- Ipad --- */
+@media screen and (min-width: 768px) {
+  #listadoProductos {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    width: 100%;
+    margin: 20px 5px;
+  }
+  #clubDeVinos {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .clubDeVinos__img {
+    display: inline-block;
+    align-items: baseline;
+    width: 400px;
+  }
+  .clubDeVinos__imgBig {
+    display: none;
+  }
+}
+/* --- Fin Ipad --- */
+/* --- Desktop --- */
+@media screen and (min-width: 1200px) {
+  #main {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    row-gap: 10px;
+    grid-area: "header" "section" "footer";
+  }
+  #header__completo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    margin-left: 20%;
+    align-items: center;
+  }
+  #header__logo {
+    width: 50%;
+  }
+  .header__buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px 25px 10px 0px;
+  }
+  footer {
+    flex-direction: row;
+    align-items: center;
+  }
+  .footer__contenido {
+    text-align: center;
+  }
+  .footer__contenido__datos {
+    text-align: left;
+  }
+  .footer__contenido__news {
+    text-align: right;
+  }
+  #eventos__small,
+#menuMobile {
+    display: none;
+  }
+  #eventos,
+#menubar {
+    display: block;
+  }
+  .navbar {
+    display: flex;
+  }
+  .navbar-nav {
+    margin-left: 25%;
+  }
+  #menubar {
+    display: inline-block;
+    height: 45px;
+    align-content: center;
+    justify-content: center;
+  }
+  .eventos__fecha {
+    width: 100px;
+    font-size: 30px;
+  }
+  .eventos__descripcion {
+    width: 250px;
+    font-size: 24px;
+  }
+  .eventos__ubicacion {
+    width: 180px;
+  }
+  .productosDestacados__nombre {
+    width: 170px;
+    font-size: 14px;
+  }
+  #listadoProductos {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 25px;
+  }
+  #clubDeVinos {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  /*#clubDeVinos__video{
+      width: 500px;
+      height: 300px;
+  }*/
+  .clubDeVinos__img {
+    display: inline-block;
+    align-items: baseline;
+    width: 450px;
+  }
+  .clubDeVinos__imgBig {
+    display: none;
+  }
+  .evento__imgEvento {
+    width: 350px;
+  }
+  .form__textarea {
+    width: 450px;
+    height: 100px;
+  }
+  #carrousel__small {
+    display: none;
+  }
+  #carrousel__large {
+    display: block;
+  }
+}
+/* --- Fin Desktop --- */
+/*----Inicio diseño del header-----*/
+#header__logo {
+  text-align: center;
+}
+
+.header__item {
+  width: 30px;
+  margin: 0px 5px;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.navbar-toggler {
+  border-radius: 0%;
+  padding: 5px;
+  margin: 3px;
+  background-color: white;
+  border-radius: 20%;
+}
+
+#menubar {
+  text-align: center;
+  padding-top: 1px;
+  background-color: black;
+}
+
+.menubar__link {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 0px 0px 0px 10px;
+}
+.menubar__link:hover {
+  color: white;
+}
+
+/*-----Fin del diseño del header-----*/
+ul {
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+nav ul li {
+  display: inline;
+  color: white;
+  margin: 10px 5px;
+}
+
+.body__img-portada {
+  width: 40%;
+  opacity: 85%;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+/*----Section----*/
+section {
+  grid-area: "section";
+  text-align: center;
+}
+section h3 {
+  color: #451C17;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: "Merienda", cursive;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  -webkit-animation-name: transparencia;
+          animation-name: transparencia;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+section ol li {
+  display: inline;
+  background-color: rgb(234, 210, 172);
+}
+section article table {
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section__banner {
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+/*----Fin Section----*/
+/* Prodcuctos destacados: index */
+#productosDestacados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productosDestacados__nombre {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.productosDestacados__image {
+  width: 80%;
+  transition: width 0.5s;
+  padding: 5px;
+}
+.productosDestacados__image:hover {
+  width: 90%;
+}
+
+/* Eventos destacados: index */
+#proximosEventos {
+  display: flex;
+  justify-content: center;
+}
+
+#eventos,
+#eventos__small {
+  font-weight: bold;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+}
+
+#eventos__small {
+  border-spacing: 1px 15px;
+}
+
+.eventos__row {
+  border-spacing: 3px;
+}
+
+.eventos__fecha {
+  width: 100px;
+  background-color: #451C17;
+  color: white;
+  border-color: white;
+  transition: all 1s;
+}
+.eventos__fecha:hover {
+  background-color: rgb(234, 210, 172);
+  color: black;
+}
+
+.eventos__descripcion {
+  width: 250px;
+  background-color: #451C17;
+  color: white;
+  transition: all 1s;
+}
+.eventos__descripcion:hover {
+  background-color: rgb(234, 210, 172);
+  color: black;
+}
+
+.eventos__ubicacion {
+  width: 180px;
+}
+
+.evento__imgEvento {
+  margin-bottom: 15px;
+  transition: width 1s;
+}
+.evento__imgEvento:hover {
+  width: 450px;
+}
+
+/* Fin eventos destacados*/
+/*----Inicio diseño de footer----*/
+footer {
+  grid-area: "footer";
+  background-color: rgb(234, 210, 172);
+  padding: 5px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+footer h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.footer__item {
+  height: 30px;
+  margin: 0px 5px;
+}
+
+.footer__contenido {
+  margin: 10px 0px;
+}
+
+/* --- Fin de diseño de footer --- */
+/* --- Formulario --- */
+fieldset {
+  line-height: 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 0px 5px 5px 5px;
+}
+fieldset select option {
+  height: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+legend {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  float: none;
+}
+
+.formContacto {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.form__textarea {
+  resize: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+.basicForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "label input";
+}
+
+.fieldDomicilio {
+  grid-template-rows: repeat(7, auto);
+}
+
+.fieldDatosPersonales {
+  grid-template-rows: repeat(3, auto);
+}
+
+.fieldContacto {
+  border: none;
+}
+
+label {
+  grid-column: 1;
+  text-align: right;
+}
+
+input .texto {
+  grid-area: input;
+}
+input .boton-envio {
+  grid-area: submit;
+}
+
+/* --- Fin diseño formulario ---*/
+.texto {
+  height: 26px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  margin: 5px;
+  border-radius: 5px;
+  transition: all 1s;
+}
+.texto:focus {
+  height: 24px;
+  font-size: 16px;
 }
 
 /* Tienda de productos */
-
-#listadoProductos{
-    display: grid;
-    row-gap: 20px;
+#listadoProductos {
+  display: grid;
+  row-gap: 20px;
 }
 
-.listadoProductos__producto{
-    justify-content: center;
-    overflow: hidden;
+.listadoProductos__producto {
+  justify-content: center;
+  overflow: hidden;
 }
 
 /*.listadoProductos__producto:hover{
@@ -712,7 +623,6 @@ input .boton-envio{
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }*/
-
 /*.producto__img{
     width: 120px;
 }
@@ -722,68 +632,72 @@ input .boton-envio{
     -webkit-transform: scale(1, 1.2);
     transform: scale(1, 1.2);
 }*/
-
-.card{
-    border: none;
+.card {
+  border: none;
 }
 
-.card:hover{
-    /*background-color: lightgray;*/
-    -webkit-transform: scale(1.1, 1.1);
-    transform: scale(1.1, 1.1);
+.card-img-top:hover {
+  /*background-color: lightgray;*/
+  transform: scale(1.1, 1.1);
 }
 
-.card-title{
-    text-align: center;
+.card-title {
+  text-align: center;
 }
 
-.card-text{
-    font-weight: bold;
-    font-size: 16px;
+.card-text {
+  font-weight: bold;
+  font-size: 16px;
 }
 
 /* Fin de Tienda de productos */
-
-
 /* --- Carrousel de imágenes --- */
-.carrousel__eventos{
-    text-align: center;
+.carrousel__eventos {
+  text-align: center;
 }
 
-.carrousel__imagen{
-    width: 150px;
-    opacity: 70%;
-    border-color: white;
-    -webkit-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
-    transition: all 1s;
+.carrousel__imagen {
+  width: 150px;
+  opacity: 70%;
+  border-color: white;
+  box-shadow: 10px 10px 7px -4px rgba(0, 0, 0, 0.75);
+  transition: all 1s;
+}
+.carrousel__imagen:hover {
+  opacity: 100%;
 }
 
-.carrousel__imagen:hover{
-    opacity: 100%;
-}
-
-.carrousel__imagen-lg{
-    width: 450px;
+.carrousel__imagen-lg {
+  width: 450px;
 }
 
 /* --- Fin Carrousel de imágenes --- */
-
-
-
 /* --- Keyframes --- */
-@keyframes transparencia {
-    0%{
-        opacity: 85%;
-        font-size: 18px;
-    }
-    50%{
-        opacity: 55%;
-        font-size: 20px;
-    }
-    100%{
-        opacity: 85%;
-        font-size: 18px;
-    }
+@-webkit-keyframes transparencia {
+  0% {
+    opacity: 85%;
+    font-size: 18px;
+  }
+  50% {
+    opacity: 55%;
+    font-size: 20px;
+  }
+  100% {
+    opacity: 85%;
+    font-size: 18px;
+  }
 }
+@keyframes transparencia {
+  0% {
+    opacity: 85%;
+    font-size: 18px;
+  }
+  50% {
+    opacity: 55%;
+    font-size: 20px;
+  }
+  100% {
+    opacity: 85%;
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=styles.css.map */
