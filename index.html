@@ -84,26 +84,50 @@
                 <div id="proximosEventos">
                     <table id="eventos" cellspacing="5" cellpadding="5">
                         <th colspan="4"><h3>Próximos eventos</h3></th>
-                        <tr class="eventos__row">
+                        <tr class="eventos__row-1">
                             <td class="eventos__fecha">10 JUL</td>
-                            <td class="eventos__descripcion">Cheese & Wine</td>
-                            <td class="eventos__ubicacion">Ver evento - Link a flyer del evento</td>
+                            <td class="eventos__descripcion" data-bs-toggle="modal" data-bs-target="#exampleModal">Cheese & Wine</td>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">VIOLETA VINOS</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img class="carrousel__imagen-lg" src="assets/images/eventos-invitacion.jpeg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <td><a href = "mailto: violetavinos@gmail.com?subject = Reservar cupo&body = ¡Hola! Quiero reservar un cupo para el evento...">¡Reservá tu lugar!</a></td>
                         </tr>
-                        <tr class="eventos__row">
+                        <tr class="eventos__row-2">
                             <td class="eventos__fecha">06 AGO</td>
-                            <td class="eventos__descripcion">Cata en casa</td>
-                            <td class="eventos__ubicacion" >Ver evento - Link a flyer del evento</td>
+                            <td class="eventos__descripcion" data-bs-toggle="modal" data-bs-target="#exampleModal">Cata en casa</td>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">VIOLETA VINOS</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img class="carrousel__imagen-lg" src="assets/images/cata-online.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <td><a href = "mailto: violetavinos@gmail.com?subject = Reservar cupo&body = ¡Hola! Quiero reservar un cupo para el evento...">¡Reservá tu lugar!</a></td>
                         </tr>
                     </table>
                     <table id="eventos__small">
                         <th colspan="2"><h3>Próximos eventos</h3></th>
-                        <tr>
+                        <tr class="eventos__row-1">
                             <td class="eventos__fecha">10 JUL</td>
                             <td class="eventos__descripcion">Cheese & Wine</td>
                         </tr>
-                        <tr>
+                        <tr class="eventos__row-2">
                             <td class="eventos__fecha">06 AGO</td>
                             <td class="eventos__descripcion">Cata en casa</td>
                         </tr>
