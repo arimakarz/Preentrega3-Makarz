@@ -102,10 +102,6 @@ body{
         width: auto;
         font-size: 18px;
     }
-    
-    .eventos__ubicacion{
-        width: 60px;
-    }
 
     .productosDestacados__nombre{
         width: 100px;
@@ -277,10 +273,6 @@ body{
     .eventos__descripcion{
         width: 250px;
         font-size: 24px;
-    }
-    
-    .eventos__ubicacion{
-        width: 180px;
     }
 
     .productosDestacados__nombre{
@@ -488,33 +480,38 @@ section{
     border-spacing: 3px;
 }
 
+$coloresMap: (fila1: $colorWine, fila2: $colorBeige);
+
+@mixin eventosColoresFondo ($colorFondo, $colorLetra) {
+    background-color: $colorFondo;
+    color: $colorLetra;
+}
+
+@for $i from 1 through 2{
+    .eventos__row-#{$i} {
+        @if $i % 2 == 0 {
+            @include eventosColoresFondo($colorWine, white);
+        }
+        @else{
+            @include eventosColoresFondo($colorBeige, black);
+        }
+        cursor: pointer;
+
+        &:hover{
+            background-color: $colorItemSelected;
+        }
+    }
+}
+
 .eventos__fecha{
     width: 100px;
-    background-color: $colorWine;
-    color: white;
     border-color: white;
     transition: all 1s;
-
-    &:hover{
-        background-color: $colorBeige;
-        color: black;
-    }
 }
 
 .eventos__descripcion{
     width: 250px;
-    background-color: $colorWine;
-    color: white;
     transition: all 1s;
-
-    &:hover{
-        background-color: $colorBeige;
-        color: black;
-    }
-}
-
-.eventos__ubicacion{
-    width: 180px;
 }
 
 .evento__imgEvento{

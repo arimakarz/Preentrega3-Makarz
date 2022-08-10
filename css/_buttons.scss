@@ -1,52 +1,38 @@
 /* --- Botones --- */
-.boton-envio{
-    width: 100px;
-    height: 25px;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    margin-bottom: 25px;
+.boton{
+   height: 25px;
+   text-align: center;
+   padding: 0px;
+   vertical-align:middle;
+   border-radius: 8px;
+   border: 1px solid black;
+   background-color: white;
+   color: black; 
+   font-size: 14px;
 
-    &:hover{
+   &:hover{
         background-color: black;
         color: white;
         border-color: black;
         border-style: solid;
     }
+}
+
+.boton-envio{
+    @extend .boton;
+    width: 100px;
 }
 
 .boton-addcart{
+    @extend .boton;
     width: 120px;
-    height: 25px;
-    text-align: center;
-    font-size: 12px;
-    border-radius: 8px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-
-    &:hover{
-        background-color: black;
-        color: white;
-        border-color: black;
-        border-style: solid;
-    }
 }
 
 .boton-buscar{
-    width: auto;
-    height: 25px;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    padding-bottom: 25px;
-
+    @extend .boton;
+    width: 100px;
+    margin-top: 5px;
+    
     &:hover{
         background-color: grey;
         color: white;
