@@ -3,6 +3,7 @@
 @import "colors";
 @import "buttons";
 
+$tipografia: 'Montserrat', sans-serif;
 
 *{
     margin: 0px;
@@ -22,7 +23,7 @@ header{
 }
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: $tipografia;
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -154,6 +155,11 @@ body{
 
     #carrousel__large{
         display: none;
+        height: 250px;
+    }
+
+    .fieldContacto{
+        margin-right: 15%;
     }
 }
 /* --- Fin Mobile --- */
@@ -326,6 +332,11 @@ body{
 
     #carrousel__large{
         display: block;
+        /*width: 25%;*/
+    }
+
+    .fieldContacto{
+        margin-right: 30%;
     }
 }
 
@@ -388,6 +399,7 @@ nav ul li{
 .body__img-portada{
     width: 40%;
     opacity: 85%;
+    margin-bottom: 30px;
 }
 
 h4{
@@ -469,6 +481,7 @@ section{
     white-space: pre-wrap;
     word-wrap: break-word;
     margin-bottom: 0px;
+    margin-top: 0px;
     padding-bottom: 10px;
 }
 
@@ -483,7 +496,12 @@ section{
 $coloresMap: (fila1: $colorWine, fila2: $colorBeige);
 
 @mixin eventosColoresFondo ($colorFondo, $colorLetra) {
-    background-color: $colorFondo;
+    @if $colorFondo == $colorWine{
+        background-color: map-get($coloresMap, fila1);
+    }@else{
+        background-color: map-get($coloresMap, fila2);
+    }
+    
     color: $colorLetra;
 }
 
@@ -561,13 +579,13 @@ fieldset{
 
     select option{
         height: 20px;
-        font-family: 'Montserrat', sans-serif;
+        font-family: $tipografia;
         font-size: 14px;
     }
 }
 
 legend{
-    font-family: 'Montserrat', sans-serif;
+    font-family: $tipografia;
     font-size: 20px;
     float:none;   
 } 
@@ -579,15 +597,16 @@ legend{
 
 .form__textarea{
     resize: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $tipografia;
     font-size: 14px;
 }
 
 .basicForm{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas:
     "label input";
+    justify-content: space-evenly;
 }
 
 .fieldDomicilio{
@@ -621,7 +640,7 @@ input{
 
 .texto{
     height: 26px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $tipografia;
     font-size: 14px;
     margin: 5px;
     border-radius: 5px;
@@ -699,6 +718,7 @@ input{
     
     &:hover{
         opacity: 100%;
+        width: 200px;
     }
 }
 

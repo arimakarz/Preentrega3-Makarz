@@ -40,4 +40,13 @@
     }
 }
 
+.boton-miembro{
+    @extend .boton;
+    width: auto;
+    height: 40px;
+    font-size: 18px;
+    padding: 0px 5px;
+    background-color: rgb(194, 91, 91);
+}
+
 /* --- Fin Botones --- */
