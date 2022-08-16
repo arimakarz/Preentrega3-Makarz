@@ -1,0 +1,98 @@
+@import "colors";
+
+/* Prodcuctos destacados: index */
+#productosDestacados{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productosDestacados__nombre{
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.productosDestacados__image{
+    width: 80%;
+    transition: width 0.5s;
+    padding: 5px;
+
+    &:hover{
+       width: 90%; 
+    }
+}
+
+/* Eventos destacados: index */
+
+#proximosEventos{
+    display: flex;
+    justify-content: center;
+}
+
+#eventos,
+#eventos__small{
+    font-weight: bold;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+}
+
+#eventos__small{
+    border-spacing: 1px 15px;
+}
+
+.eventos__row{
+    border-spacing: 3px;
+}
+
+$coloresMap: (fila1: $colorWine, fila2: $colorBeige);
+
+@mixin eventosColoresFondo ($colorFondo, $colorLetra) {
+    @if $colorFondo == $colorWine{
+        background-color: map-get($coloresMap, fila1);
+    }@else{
+        background-color: map-get($coloresMap, fila2);
+    }
+    
+    color: $colorLetra;
+}
+
+@for $i from 1 through 2{
+    .eventos__row-#{$i} {
+        @if $i % 2 == 0 {
+            @include eventosColoresFondo($colorWine, white);
+        }
+        @else{
+            @include eventosColoresFondo($colorBeige, black);
+        }
+        cursor: pointer;
+
+        &:hover{
+            background-color: $colorItemSelected;
+        }
+    }
+}
+
+.eventos__fecha{
+    width: 100px;
+    border-color: white;
+    transition: all 1s;
+}
+
+.eventos__descripcion{
+    width: 250px;
+    transition: all 1s;
+}
+
+.evento__imgEvento{
+    margin-bottom: 15px;
+    transition: width 1s;
+
+    &:hover{
+        width: 450px;
+    }
+}
+
+/* Fin eventos destacados*/

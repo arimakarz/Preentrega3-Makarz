@@ -1,0 +1,310 @@
+/* ---Mobile--- */
+@media screen and (min-width: 320px){
+    #main{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        row-gap: 10px;
+        grid-area:
+        "header"
+        "section"
+        "footer";
+    }
+
+    header{
+        justify-content: space-around;
+    }
+
+    #header__completo{
+        align-items: center;
+    }
+
+    #header__logo{
+        width: 60%;
+    }
+
+    .header__buttons{
+        display: none;
+    }
+
+    section{
+        margin-bottom: 10px;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+
+    .footer__contenido{
+        text-align: left;
+    }
+
+    .footer__contenido__news, 
+    #footer__emailLabel{
+        text-align: left;
+    }
+
+    #eventos__small{
+        display: block;
+    }
+
+    /*#menuMobile{
+        display: flex;
+        justify-content: flex-end;
+    }*/
+
+    #menubar{
+        height: auto;
+    }
+
+    #eventos{
+        display: none;
+    }
+
+    .eventos__fecha{
+        width: 30px;
+        font-size: 16px; 
+    }
+    
+    .eventos__descripcion{
+        width: auto;
+        font-size: 18px;
+    }
+
+    .productosDestacados__nombre{
+        width: 100px;
+        font-size: 12px;
+    }
+
+    #listadoProductos{
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(4, auto);
+        width: 100%;
+        margin: 25px 5px;
+        justify-content: center;
+    }
+
+    #clubDeVinos{
+        align-content: center;
+    }
+
+    #clubDeVinos__video{
+        width: 300px;
+    }
+
+    .clubDeVinos__imgBig{
+        display: block;
+        width: 350px;
+    }
+
+    .clubDeVinos__img{
+        display: none;
+    }
+
+    fieldset #comentarios{
+        width: 324px;
+    }
+
+    .evento__imgEvento{
+        width: 300px;
+    }
+
+    .form__textarea{
+        width: 280px;
+        height: 80px;
+    }
+
+    #carrousel__small{
+        display: block;
+        width: auto;
+        margin: 10px 0px;
+    }
+
+    #carrousel__large{
+        display: none;
+        height: 250px;
+    }
+
+    .fieldContacto{
+        margin-right: 15%;
+    }
+}
+/* --- Fin Mobile --- */
+
+/* --- Ipad --- */
+
+@media screen and (min-width: 768px){
+    #listadoProductos{
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+        width: 100%;
+        margin: 20px 5px;
+    }
+
+    #clubDeVinos{
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clubDeVinos__img{
+        display: inline-block;
+        align-items: baseline;
+        width: 400px;
+    }
+
+    .clubDeVinos__imgBig{
+        display: none;
+    }
+}
+
+/* --- Fin Ipad --- */
+
+/* --- Desktop --- */
+@media screen and (min-width: 1200px){
+    #main{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        row-gap: 10px;
+        grid-area:
+        "header"
+        "section"
+        "footer";
+    }
+
+    #header__completo{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        margin-left: 20%;
+        align-items: center;
+    }
+
+    #header__logo{
+        width: 50%;
+    }
+
+    .header__buttons{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 25px 10px 0px;
+    }
+
+    footer{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .footer__contenido{
+        text-align: center;
+    }
+
+    .footer__contenido__datos{
+        text-align: left;
+    }
+    
+    .footer__contenido__news{
+        text-align: right;
+    }
+
+    #eventos__small,
+    #menuMobile{
+        display: none;
+    }
+
+    #eventos, 
+    #menubar{
+        display: block;
+    }
+
+    .navbar{
+        display: flex;
+    }
+
+    .navbar-nav{
+        margin-left: 25%;
+    }
+
+    #menubar{
+        display: inline-block;
+        height: 45px;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .eventos__fecha{
+        width: 100px;
+        font-size: 30px; 
+    }
+    
+    .eventos__descripcion{
+        width: 250px;
+        font-size: 24px;
+    }
+
+    .productosDestacados__nombre{
+        width: 170px;
+        font-size: 14px;
+    }
+
+    #listadoProductos{
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(2, auto);
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 25px;
+    }
+
+    #clubDeVinos{
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*#clubDeVinos__video{
+        width: 500px;
+        height: 300px;
+    }*/
+
+    .clubDeVinos__img{
+        display: inline-block;
+        align-items: baseline;
+        width: 450px;
+    }
+
+    .clubDeVinos__imgBig{
+        display: none;
+    }
+
+    .evento__imgEvento{
+        width: 350px;
+    }
+
+    .form__textarea{
+        width: 450px;
+        height: 100px;
+    }
+
+    #carrousel__small{
+        display: none;
+    }
+
+    #carrousel__large{
+        display: block;
+        /*width: 25%;*/
+    }
+
+    .fieldContacto{
+        margin-right: 30%;
+    }
+}
+
+/* --- Fin Desktop --- */

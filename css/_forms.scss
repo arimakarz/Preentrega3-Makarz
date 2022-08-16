@@ -1,0 +1,69 @@
+@import "body";
+
+/* --- Formulario --- */
+fieldset{
+    line-height: 30px;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 0px 5px 5px 5px;
+
+    select option{
+        height: 20px;
+        font-family: $tipografia;
+        font-size: 14px;
+    }
+}
+
+legend{
+    font-family: $tipografia;
+    font-size: 20px;
+    float:none;   
+} 
+
+.formContacto{
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.form__textarea{
+    resize: none;
+    font-family: $tipografia;
+    font-size: 14px;
+}
+
+.basicForm{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas:
+    "label input";
+    justify-content: space-evenly;
+}
+
+.fieldDomicilio{
+    grid-template-rows: repeat(7, auto);
+}
+
+.fieldDatosPersonales{
+    grid-template-rows: repeat(3, auto);
+}
+
+.fieldContacto{
+    border: none;
+}
+
+label{
+    grid-column: 1;
+    text-align: right;
+}
+
+input{
+    .texto{
+        grid-area: input;
+    }
+
+    .boton-envio{
+        grid-area: submit;
+    }
+} 
+
+/* --- Fin diseño formulario ---*/
