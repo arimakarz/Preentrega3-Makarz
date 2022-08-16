@@ -1,0 +1,144 @@
+$tipografia: 'Montserrat', sans-serif;
+
+body{
+    font-family: $tipografia;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+nav ul li{
+    display: inline;
+    color: white;
+    margin: 10px 5px;
+}
+
+.body__img-portada{
+    width: 40%;
+    opacity: 85%;
+    margin-bottom: 30px;
+}
+
+h4{
+    font-weight: bold;
+}
+
+.texto{
+    height: 26px;
+    font-family: $tipografia;
+    font-size: 14px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: all 1s;
+
+    &:focus{
+        height: 24px;
+        font-size: 16px;
+    }
+}
+
+/*----Section----*/
+section{
+    grid-area: "section";
+    text-align: center;
+
+    h3{
+        color: $colorWine;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: 'Merienda', cursive;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        animation-name: transparencia;
+        animation-iteration-count: 2;
+        animation-timing-function: ease;
+        animation-duration: 2s;
+        animation-delay: 0s;
+    }
+
+    ol li{
+        display: inline;
+        background-color: $colorBeige;
+    }
+
+    article table{
+        letter-spacing: 1.5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+.section__banner{
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+/*----Fin Section----*/
+
+/* Tienda de productos */
+
+#listadoProductos{
+    display: grid;
+    row-gap: 20px;
+}
+
+.listadoProductos__producto{
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card{
+    border: none;
+}
+
+.card-img-top:hover{
+    /*background-color: lightgray;*/
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Fin de Tienda de productos */
+
+/* --- Carrousel de imágenes --- */
+.carrousel__eventos{
+    text-align: center;
+}
+
+.carrousel__imagen{
+    width: 150px;
+    opacity: 70%;
+    border-color: white;
+    -webkit-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+    transition: all 1s;
+    
+    &:hover{
+        opacity: 100%;
+        width: 200px;
+    }
+}
+
+.carrousel__imagen-lg{
+    width: 450px;
+}
+
+/* --- Fin Carrousel de imágenes --- */

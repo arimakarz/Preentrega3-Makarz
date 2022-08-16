@@ -1,0 +1,56 @@
+@import "colors";
+
+header{
+    grid-area: "header";
+    background-color: $colorBeige;
+    position: sticky;
+    z-index: 999; /*corregir*/
+    top: 1px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    width: auto;
+}
+
+/*----Inicio diseño del header-----*/
+
+#header__logo{
+    text-align: center;
+}
+
+.header__item{
+    width: 30px;
+    margin: 0px 5px;
+}
+
+.navbar{
+    padding: 0px;
+}
+
+.navbar-toggler{
+    border-radius: 0%;
+    padding: 5px;
+    margin: 3px;
+    background-color: white;
+    border-radius: 20%;
+}
+
+#menubar{
+    text-align: center;
+    padding-top: 1px;
+    background-color: $colorMenubar;
+}
+
+.menubar__link{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 0px 0px 0px 10px;
+    
+    &:hover{
+        color: white;
+    }
+}
+
+/*-----Fin del diseño del header-----*/

@@ -1,0 +1,28 @@
+@import "colors";
+
+/*----Inicio diseño de footer----*/
+footer{
+    grid-area: "footer";
+    background-color: $colorBeige;
+    padding: 5px 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+
+    h4{
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+} 
+
+.footer__item{
+    height: 30px;
+    margin: 0px 5px;
+}
+
+.footer__contenido{
+    margin: 10px 0px;
+}
+
+/* --- Fin de diseño de footer --- */
