@@ -128,6 +128,10 @@
     .fieldContacto{
         margin-right: 15%;
     }
+
+    .fieldDomicilio .texto{
+        width: 90%;
+    }
 }
 /* --- Fin Mobile --- */
 
@@ -157,6 +161,14 @@
 
     .clubDeVinos__imgBig{
         display: none;
+    }
+
+    .fieldContacto{
+        margin-right: 30%;
+    }
+
+    .fieldDomicilio .texto{
+        width: 60%;
     }
 }
 
@@ -269,11 +281,6 @@
         justify-content: center;
     }
 
-    /*#clubDeVinos__video{
-        width: 500px;
-        height: 300px;
-    }*/
-
     .clubDeVinos__img{
         display: inline-block;
         align-items: baseline;
@@ -299,11 +306,14 @@
 
     #carrousel__large{
         display: block;
-        /*width: 25%;*/
     }
 
     .fieldContacto{
         margin-right: 30%;
+    }
+
+    .fieldDomicilio .texto{
+        width: 60%;
     }
 }
 

@@ -20,10 +20,10 @@
     <!---logo y menu-->
     <header>
         <div id="header__completo">
-            <h3><a href="../index.html"><img id="header__logo" src="../assets/images/logo/logo-chico.png" alt="Imagen no disponible"></a></h3>
+            <h3><a href="../index.html"><img id="header__logo" src="../assets/images/logo/logo-chico.png" alt="Violeta Vinos"></a></h3>
             <div class="header__buttons">
-                <img class="header__item" src="../assets/images/login-logo.png" alt="Imagen no disponible">
-                <img class="header__item" src="../assets/images/carrito-logo.png" alt="Imagen no disponible">
+                <img class="header__item" src="../assets/images/login-logo.png" alt="Login">
+                <img class="header__item" src="../assets/images/carrito-logo.png" alt="Carrito de compras">
             </div>
         </div>
         <nav class="navbar navbar-expand-lg bg-light">
@@ -48,12 +48,16 @@
                         <li class="nav-item">
                             <a class="nav-link menubar__link" href="contacto.html">Contacto</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link menubar__link" href="../index.html">Login</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2 texto" type="search" placeholder="Buscar..." aria-label="Search">
                         <button class="btn btn-outline-success boton-buscar" type="submit">Search</button>
                     </form>
                 </div>
+                <img class="header__item header__item-mobile" src="../assets/images/carrito-logo.png" alt="Carrito de compras">
             </div>
         </nav>
     </header>
@@ -64,10 +68,9 @@
             <h3>Club de vinos</h3>
             <!--Video e imágenes de explicación del Club de Vinos-->
             <div id="clubDeVinos">
-                <!--<iframe id="clubDeVinos__video" src="https://www.youtube.com/embed/gYiZw69eZ3Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>-->
-                <img class="clubDeVinos__img  wow animate__animated animate__fadeIn" src="../assets/images/club-funcionamiento1.jpg" alt="Imagen no disponible">
-                <img class="clubDeVinos__img  wow animate__animated animate__fadeIn" src="../assets/images/club-funcionamiento2.jpg" alt="Imagen no disponible">
-                <img class="clubDeVinos__imgBig  wow animate__animated animate__fadeIn" src="../assets/images/club-funcionamiento.jpeg" alt="Imagen no disponible">
+                <img class="clubDeVinos__img  wow animate__animated animate__fadeIn" src="../assets/images/club-funcionamiento1.jpg" alt="Descripción de club de vinos - No se puede mostrar la imagen">
+                <img class="clubDeVinos__img  wow animate__animated animate__fadeIn" src="../assets/images/club-funcionamiento2.jpg" alt="Descripción de club de vinos - No se puede mostrar la imagen">
+                <img class="clubDeVinos__imgBig  wow animate__animated animate__fadeIn" src="../assets/images/club-funcionamiento.jpeg" alt="Descripción de club de vinos - No se puede mostrar la imagen">
             </div>
             <form action="" method="post" enctype="multipart/form-data">
                 <fieldset class="basicForm fieldDatosPersonales">
@@ -79,6 +82,7 @@
                     <label for="telefono">Teléfono: </label>
                     <input class="texto" type="text" name="telefono" placeholder="Tu teléfono" required>
                 </fieldset>
+                <hr>
                 <fieldset>
                     <legend>Elegí tu box</legend>
                     <label for="box">Elegí el tipo de box que querés</label><br>
@@ -92,6 +96,7 @@
                     <br>
                     <textarea class="form__textarea" name="comentarios" id="comentarios" style="resize: none;"></textarea>
                 </fieldset>
+                <hr>
                 <fieldset class="basicForm fieldDomicilio">
                     <legend>Datos de envío</legend>
                     <label for="destinatario">Nombre de quien recibe el box:</label>

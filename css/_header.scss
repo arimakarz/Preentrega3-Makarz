@@ -4,7 +4,7 @@ header{
     grid-area: "header";
     background-color: $colorBeige;
     position: sticky;
-    z-index: 999; /*corregir*/
+    z-index: 999;
     top: 1px;
     margin: 0px;
     padding: 0px;
@@ -21,6 +21,11 @@ header{
 .header__item{
     width: 30px;
     margin: 0px 5px;
+}
+
+.header__item-mobile{
+    filter: invert(100%);
+    transform: scale(1.2);
 }
 
 .navbar{

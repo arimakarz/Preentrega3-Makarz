@@ -21,11 +21,26 @@
 }
 
 .boton-envio {
-  width: 100px;
+  width: auto;
+  height: 30px;
+  padding: 0px 5px;
 }
 
 .boton-addcart {
   width: 120px;
+}
+.boton-addcart:visited {
+  background-color: white;
+  color: black;
+  border-style: none;
+}
+.boton-addcart:active {
+  background-color: gray;
+  border-style: none;
+}
+.boton-addcart:hover {
+  background-color: black;
+  color: white;
 }
 
 .boton-buscar {
@@ -148,6 +163,9 @@
   .fieldContacto {
     margin-right: 15%;
   }
+  .fieldDomicilio .texto {
+    width: 90%;
+  }
 }
 /* --- Fin Mobile --- */
 /* --- Ipad --- */
@@ -172,6 +190,12 @@
   }
   .clubDeVinos__imgBig {
     display: none;
+  }
+  .fieldContacto {
+    margin-right: 30%;
+  }
+  .fieldDomicilio .texto {
+    width: 60%;
   }
 }
 /* --- Fin Ipad --- */
@@ -261,10 +285,6 @@
     align-items: center;
     justify-content: center;
   }
-  /*#clubDeVinos__video{
-      width: 500px;
-      height: 300px;
-  }*/
   .clubDeVinos__img {
     display: inline-block;
     align-items: baseline;
@@ -285,10 +305,12 @@
   }
   #carrousel__large {
     display: block;
-    /*width: 25%;*/
   }
   .fieldContacto {
     margin-right: 30%;
+  }
+  .fieldDomicilio .texto {
+    width: 60%;
   }
 }
 /* --- Fin Desktop --- */
@@ -297,7 +319,7 @@ header {
   background-color: rgb(234, 210, 172);
   position: -webkit-sticky;
   position: sticky;
-  z-index: 999; /*corregir*/
+  z-index: 999;
   top: 1px;
   margin: 0px;
   padding: 0px;
@@ -313,6 +335,11 @@ header {
 .header__item {
   width: 30px;
   margin: 0px 5px;
+}
+
+.header__item-mobile {
+  filter: invert(100%);
+  transform: scale(1.2);
 }
 
 .navbar {
@@ -375,6 +402,12 @@ h4 {
   font-weight: bold;
 }
 
+hr {
+  width: 60%;
+  margin-left: 20%;
+  border: 1px solid #451C17;
+}
+
 .texto {
   height: 26px;
   font-family: "Montserrat", sans-serif;
@@ -469,11 +502,13 @@ section article table {
   opacity: 70%;
   border-color: white;
   box-shadow: 10px 10px 7px -4px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
   transition: all 1s;
 }
 .carrousel__imagen:hover {
   opacity: 100%;
   width: 200px;
+  border-radius: 16px;
 }
 
 .carrousel__imagen-lg {
@@ -511,6 +546,12 @@ h4 {
   font-weight: bold;
 }
 
+hr {
+  width: 60%;
+  margin-left: 20%;
+  border: 1px solid #451C17;
+}
+
 .texto {
   height: 26px;
   font-family: "Montserrat", sans-serif;
@@ -605,11 +646,13 @@ section article table {
   opacity: 70%;
   border-color: white;
   box-shadow: 10px 10px 7px -4px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
   transition: all 1s;
 }
 .carrousel__imagen:hover {
   opacity: 100%;
   width: 200px;
+  border-radius: 16px;
 }
 
 .carrousel__imagen-lg {

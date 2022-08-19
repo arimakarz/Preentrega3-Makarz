@@ -30,6 +30,12 @@ h4{
     font-weight: bold;
 }
 
+hr{
+    width: 60%; 
+    margin-left:20%;
+    border: 1px solid $colorWine;
+}
+
 .texto{
     height: 26px;
     font-family: $tipografia;
@@ -129,11 +135,13 @@ section{
     -webkit-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 7px -4px rgba(0,0,0,0.75);
+    border-radius: 4px;
     transition: all 1s;
     
     &:hover{
         opacity: 100%;
         width: 200px;
+        border-radius: 16px;
     }
 }
 
