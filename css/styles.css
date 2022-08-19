@@ -106,6 +106,9 @@
   #menubar {
     height: auto;
   }
+  .menubar__link-login {
+    display: block;
+  }
   #eventos {
     display: none;
   }
@@ -258,6 +261,9 @@
     height: 45px;
     align-content: center;
     justify-content: center;
+  }
+  .menubar__link-login {
+    display: none;
   }
   .eventos__fecha {
     width: 100px;
