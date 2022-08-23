@@ -21,7 +21,6 @@ nav ul li{
 }
 
 .body__img-portada{
-    width: 40%;
     opacity: 85%;
     margin-bottom: 30px;
 }
@@ -48,6 +47,11 @@ hr{
         height: 24px;
         font-size: 16px;
     }
+}
+
+.link__mail{
+    text-decoration: none;
+    color: black;
 }
 
 /*----Section----*/

@@ -65,6 +65,11 @@
     font-size: 18px;
     padding: 0px 5px;
     background-color: rgb(194, 91, 91);
+
+    &:active{
+        background-color: white;
+        color: black;
+    }
 }
 
 /* --- Fin Botones --- */

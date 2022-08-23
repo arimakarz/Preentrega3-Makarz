@@ -60,6 +60,10 @@
   padding: 0px 5px;
   background-color: rgb(194, 91, 91);
 }
+.boton-miembro:active {
+  background-color: white;
+  color: black;
+}
 
 /* --- Fin Botones --- */
 /* ---Mobile--- */
@@ -73,6 +77,9 @@
   }
   header {
     justify-content: space-around;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 999;
   }
   #header__completo {
     align-items: center;
@@ -99,15 +106,18 @@
   #eventos__small {
     display: block;
   }
-  /*#menuMobile{
-      display: flex;
-      justify-content: flex-end;
-  }*/
   #menubar {
     height: auto;
   }
   .menubar__link-login {
     display: block;
+  }
+  .header__item-mobile {
+    display: block;
+  }
+  .body__img-portada {
+    width: 60%;
+    margin-left: 25px;
   }
   #eventos {
     display: none;
@@ -211,6 +221,11 @@
     row-gap: 10px;
     grid-area: "header" "section" "footer";
   }
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 999;
+  }
   #header__completo {
     display: flex;
     flex-flow: row nowrap;
@@ -265,6 +280,9 @@
   .menubar__link-login {
     display: none;
   }
+  .header__item-mobile {
+    display: none;
+  }
   .eventos__fecha {
     width: 100px;
     font-size: 30px;
@@ -302,6 +320,10 @@
   .evento__imgEvento {
     width: 350px;
   }
+  .body__img-portada {
+    margin-left: 80px;
+    width: 40%;
+  }
   .form__textarea {
     width: 450px;
     height: 100px;
@@ -320,12 +342,41 @@
   }
 }
 /* --- Fin Desktop --- */
+@media (max-width: 768px) and (orientation: landscape) {
+  #header__logo {
+    width: 15%;
+    margin-top: 10px;
+  }
+  .fieldContacto {
+    margin-right: auto;
+  }
+  .clubDeVinos__img {
+    display: inline-block;
+    align-items: baseline;
+    width: 450px;
+  }
+  .clubDeVinos__imgBig {
+    display: none;
+  }
+  #carrousel__small {
+    display: block;
+    width: 70%;
+    margin: auto;
+  }
+  #carrousel__large {
+    display: none;
+  }
+  #listadoProductos {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 25px;
+  }
+}
 header {
   grid-area: "header";
   background-color: rgb(234, 210, 172);
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 999;
   top: 1px;
   margin: 0px;
   padding: 0px;
@@ -399,7 +450,6 @@ nav ul li {
 }
 
 .body__img-portada {
-  width: 40%;
   opacity: 85%;
   margin-bottom: 30px;
 }
@@ -425,6 +475,11 @@ hr {
 .texto:focus {
   height: 24px;
   font-size: 16px;
+}
+
+.link__mail {
+  text-decoration: none;
+  color: black;
 }
 
 /*----Section----*/
@@ -543,7 +598,6 @@ nav ul li {
 }
 
 .body__img-portada {
-  width: 40%;
   opacity: 85%;
   margin-bottom: 30px;
 }
@@ -569,6 +623,11 @@ hr {
 .texto:focus {
   height: 24px;
   font-size: 16px;
+}
+
+.link__mail {
+  text-decoration: none;
+  color: black;
 }
 
 /*----Section----*/

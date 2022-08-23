@@ -1,4 +1,5 @@
 /* ---Mobile--- */
+
 @media screen and (min-width: 320px){
     #main{
         display: grid;
@@ -13,6 +14,8 @@
 
     header{
         justify-content: space-around;
+        position: sticky;
+        z-index: 999;
     }
 
     #header__completo{
@@ -48,17 +51,21 @@
         display: block;
     }
 
-    /*#menuMobile{
-        display: flex;
-        justify-content: flex-end;
-    }*/
-
     #menubar{
         height: auto;
     }
 
     .menubar__link-login{
         display: block;
+    }
+
+    .header__item-mobile{
+        display: block;
+    }
+
+    .body__img-portada{
+        width: 60%;
+        margin-left: 25px;
     }
 
     #eventos{
@@ -191,6 +198,11 @@
         "footer";
     }
 
+    header{
+        position: sticky;
+        z-index: 999;
+    }
+
     #header__completo{
         display: flex;
         flex-flow: row nowrap;
@@ -258,6 +270,10 @@
         display: none;
     }
 
+    .header__item-mobile{
+        display: none;
+    }
+
     .eventos__fecha{
         width: 100px;
         font-size: 30px; 
@@ -303,6 +319,11 @@
         width: 350px;
     }
 
+    .body__img-portada{
+        margin-left: 80px;
+        width: 40%;
+    }
+
     .form__textarea{
         width: 450px;
         height: 100px;
@@ -326,3 +347,42 @@
 }
 
 /* --- Fin Desktop --- */
+
+@media (max-width:768px) and (orientation:landscape){
+    #header__logo{
+        width: 15%;
+        margin-top: 10px;
+    }
+
+    .fieldContacto{
+        margin-right: auto;
+    }
+
+    .clubDeVinos__img{
+        display: inline-block;
+        align-items: baseline;
+        width: 450px;
+    }
+
+    .clubDeVinos__imgBig{
+        display: none;
+    }
+
+    #carrousel__small{
+        display: block;
+        width: 70%;
+        margin: auto;
+    }
+
+    #carrousel__large{
+        display: none;
+    }
+
+    #listadoProductos{
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 25px;
+    }
+}
