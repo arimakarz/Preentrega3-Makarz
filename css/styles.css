@@ -57,8 +57,8 @@
   width: auto;
   height: 40px;
   font-size: 18px;
-  padding: 0px 5px;
-  background-color: rgb(194, 91, 91);
+  padding: 0px 15px;
+  background-color: rgb(204, 115, 115);
 }
 .boton-miembro:active {
   background-color: white;
@@ -66,314 +66,6 @@
 }
 
 /* --- Fin Botones --- */
-/* ---Mobile--- */
-@media screen and (min-width: 320px) {
-  #main {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    row-gap: 10px;
-    grid-area: "header" "section" "footer";
-  }
-  header {
-    justify-content: space-around;
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 999;
-  }
-  #header__completo {
-    align-items: center;
-  }
-  #header__logo {
-    width: 60%;
-  }
-  .header__buttons {
-    display: none;
-  }
-  section {
-    margin-bottom: 10px;
-  }
-  footer {
-    flex-direction: column;
-  }
-  .footer__contenido {
-    text-align: left;
-  }
-  .footer__contenido__news,
-#footer__emailLabel {
-    text-align: left;
-  }
-  #eventos__small {
-    display: block;
-  }
-  #menubar {
-    height: auto;
-  }
-  .menubar__link-login {
-    display: block;
-  }
-  .header__item-mobile {
-    display: block;
-  }
-  .body__img-portada {
-    width: 60%;
-    margin-left: 25px;
-  }
-  #eventos {
-    display: none;
-  }
-  .eventos__fecha {
-    width: 30px;
-    font-size: 16px;
-  }
-  .eventos__descripcion {
-    width: auto;
-    font-size: 18px;
-  }
-  .productosDestacados__nombre {
-    width: 100px;
-    font-size: 12px;
-  }
-  #listadoProductos {
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(4, auto);
-    width: 100%;
-    margin: 25px 5px;
-    justify-content: center;
-  }
-  #clubDeVinos {
-    align-content: center;
-  }
-  #clubDeVinos__video {
-    width: 300px;
-  }
-  .clubDeVinos__imgBig {
-    display: block;
-    width: 350px;
-  }
-  .clubDeVinos__img {
-    display: none;
-  }
-  fieldset #comentarios {
-    width: 324px;
-  }
-  .evento__imgEvento {
-    width: 300px;
-  }
-  .form__textarea {
-    width: 280px;
-    height: 80px;
-  }
-  #carrousel__small {
-    display: block;
-    width: auto;
-    margin: 10px 0px;
-  }
-  #carrousel__large {
-    display: none;
-    height: 250px;
-  }
-  .fieldContacto {
-    margin-right: 15%;
-  }
-  .fieldDomicilio .texto {
-    width: 90%;
-  }
-}
-/* --- Fin Mobile --- */
-/* --- Ipad --- */
-@media screen and (min-width: 768px) {
-  #listadoProductos {
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, auto);
-    width: 100%;
-    margin: 20px 5px;
-  }
-  #clubDeVinos {
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-  }
-  .clubDeVinos__img {
-    display: inline-block;
-    align-items: baseline;
-    width: 400px;
-  }
-  .clubDeVinos__imgBig {
-    display: none;
-  }
-  .fieldContacto {
-    margin-right: 30%;
-  }
-  .fieldDomicilio .texto {
-    width: 60%;
-  }
-}
-/* --- Fin Ipad --- */
-/* --- Desktop --- */
-@media screen and (min-width: 1200px) {
-  #main {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    row-gap: 10px;
-    grid-area: "header" "section" "footer";
-  }
-  header {
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 999;
-  }
-  #header__completo {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    margin-left: 20%;
-    align-items: center;
-  }
-  #header__logo {
-    width: 50%;
-  }
-  .header__buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0px 25px 10px 0px;
-  }
-  footer {
-    flex-direction: row;
-    align-items: center;
-  }
-  .footer__contenido {
-    text-align: center;
-  }
-  .footer__contenido__datos {
-    text-align: left;
-  }
-  .footer__contenido__news {
-    text-align: right;
-  }
-  #eventos__small,
-#menuMobile {
-    display: none;
-  }
-  #eventos,
-#menubar {
-    display: block;
-  }
-  .navbar {
-    display: flex;
-  }
-  .navbar-nav {
-    margin-left: 25%;
-  }
-  #menubar {
-    display: inline-block;
-    height: 45px;
-    align-content: center;
-    justify-content: center;
-  }
-  .menubar__link-login {
-    display: none;
-  }
-  .header__item-mobile {
-    display: none;
-  }
-  .eventos__fecha {
-    width: 100px;
-    font-size: 30px;
-  }
-  .eventos__descripcion {
-    width: 250px;
-    font-size: 24px;
-  }
-  .productosDestacados__nombre {
-    width: 170px;
-    font-size: 14px;
-  }
-  #listadoProductos {
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(2, auto);
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 25px;
-  }
-  #clubDeVinos {
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-  }
-  .clubDeVinos__img {
-    display: inline-block;
-    align-items: baseline;
-    width: 450px;
-  }
-  .clubDeVinos__imgBig {
-    display: none;
-  }
-  .evento__imgEvento {
-    width: 350px;
-  }
-  .body__img-portada {
-    margin-left: 80px;
-    width: 40%;
-  }
-  .form__textarea {
-    width: 450px;
-    height: 100px;
-  }
-  #carrousel__small {
-    display: none;
-  }
-  #carrousel__large {
-    display: block;
-  }
-  .fieldContacto {
-    margin-right: 30%;
-  }
-  .fieldDomicilio .texto {
-    width: 60%;
-  }
-}
-/* --- Fin Desktop --- */
-@media (max-width: 768px) and (orientation: landscape) {
-  #header__logo {
-    width: 15%;
-    margin-top: 10px;
-  }
-  .fieldContacto {
-    margin-right: auto;
-  }
-  .clubDeVinos__img {
-    display: inline-block;
-    align-items: baseline;
-    width: 450px;
-  }
-  .clubDeVinos__imgBig {
-    display: none;
-  }
-  #carrousel__small {
-    display: block;
-    width: 70%;
-    margin: auto;
-  }
-  #carrousel__large {
-    display: none;
-  }
-  #listadoProductos {
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, auto);
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 25px;
-  }
-}
 header {
   grid-area: "header";
   background-color: rgb(234, 210, 172);
@@ -577,6 +269,341 @@ section article table {
 }
 
 /* --- Fin Carrousel de imágenes --- */
+/* --- Generar tienda --- */
+/* --- Fin Tienda --- */
+/* ---Mobile--- */
+@media screen and (min-width: 320px) {
+  #main {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    row-gap: 10px;
+    grid-area: "header" "section" "footer";
+  }
+  header {
+    justify-content: space-around;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 999;
+  }
+  #header__completo {
+    align-items: center;
+  }
+  #header__logo {
+    width: 60%;
+  }
+  .header__buttons {
+    display: none;
+  }
+  section {
+    margin-bottom: 10px;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .footer__contenido {
+    text-align: left;
+  }
+  .footer__contenido__news,
+#footer__emailLabel {
+    text-align: left;
+  }
+  #eventos__small {
+    display: block;
+  }
+  #menubar {
+    height: auto;
+  }
+  .menubar__link-login {
+    display: block;
+  }
+  .header__item-mobile {
+    display: block;
+  }
+  .body__img-portada {
+    width: 60%;
+    margin-left: 25px;
+  }
+  #eventos {
+    display: none;
+  }
+  .eventos__fecha {
+    width: 30px;
+    font-size: 16px;
+  }
+  .eventos__descripcion {
+    width: auto;
+    font-size: 18px;
+  }
+  .productosDestacados__nombre {
+    width: 100px;
+    font-size: 12px;
+  }
+  #listadoProductos {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    justify-content: center;
+    /*grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    justify-content: center;*/
+    width: 100%;
+    margin: 25px 5px;
+  }
+  #clubDeVinos {
+    align-content: center;
+  }
+  #clubDeVinos__video {
+    width: 300px;
+  }
+  .clubDeVinos__imgBig {
+    display: block;
+    width: 350px;
+  }
+  .clubDeVinos__img {
+    display: none;
+  }
+  fieldset #comentarios {
+    width: 324px;
+  }
+  .evento__imgEvento {
+    width: 80%;
+    transition: width 1s;
+  }
+  .evento__imgEvento:hover {
+    width: 90%;
+  }
+  .form__textarea {
+    width: 280px;
+    height: 80px;
+  }
+  #carrousel__small {
+    display: block;
+    width: auto;
+    margin: 10px 0px;
+  }
+  #carrousel__large {
+    display: none;
+    height: 250px;
+  }
+  .fieldContacto {
+    margin-right: 15%;
+  }
+  .fieldDomicilio .texto {
+    width: 90%;
+  }
+}
+/* --- Fin Mobile --- */
+/* --- Ipad --- */
+@media screen and (min-width: 768px) {
+  #listadoProductos {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    /*grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;*/
+    margin: 20px 5px;
+    width: 100%;
+  }
+  #clubDeVinos {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .clubDeVinos__img {
+    display: inline-block;
+    align-items: baseline;
+    width: 400px;
+  }
+  .clubDeVinos__imgBig {
+    display: none;
+  }
+  .fieldContacto {
+    margin-right: 30%;
+  }
+  .fieldDomicilio .texto {
+    width: 60%;
+  }
+}
+/* --- Fin Ipad --- */
+/* --- Desktop --- */
+@media screen and (min-width: 1200px) {
+  #main {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    row-gap: 10px;
+    grid-area: "header" "section" "footer";
+  }
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 999;
+  }
+  #header__completo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    margin-left: 20%;
+    align-items: center;
+  }
+  #header__logo {
+    width: 50%;
+  }
+  .header__buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px 25px 10px 0px;
+  }
+  footer {
+    flex-direction: row;
+    align-items: center;
+  }
+  .footer__contenido {
+    text-align: center;
+  }
+  .footer__contenido__datos {
+    text-align: left;
+  }
+  .footer__contenido__news {
+    text-align: right;
+  }
+  #eventos__small,
+#menuMobile {
+    display: none;
+  }
+  #eventos,
+#menubar {
+    display: block;
+  }
+  .navbar {
+    display: flex;
+  }
+  .navbar-nav {
+    margin-left: 25%;
+  }
+  #menubar {
+    display: inline-block;
+    height: 45px;
+    align-content: center;
+    justify-content: center;
+  }
+  .menubar__link-login {
+    display: none;
+  }
+  .header__item-mobile {
+    display: none;
+  }
+  .eventos__fecha {
+    width: 100px;
+    font-size: 30px;
+  }
+  .eventos__descripcion {
+    width: 250px;
+    font-size: 24px;
+  }
+  .productosDestacados__nombre {
+    width: 170px;
+    font-size: 14px;
+  }
+  #listadoProductos {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    /*grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;*/
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 25px;
+  }
+  #clubDeVinos {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .clubDeVinos__img {
+    display: inline-block;
+    align-items: baseline;
+    width: 450px;
+  }
+  .clubDeVinos__imgBig {
+    display: none;
+  }
+  .evento__imgEvento {
+    width: 20%;
+  }
+  .evento__imgEvento:hover {
+    width: 25%;
+  }
+  .body__img-portada {
+    margin-left: 80px;
+    width: 40%;
+  }
+  .form__textarea {
+    width: 450px;
+    height: 100px;
+  }
+  #carrousel__small {
+    display: none;
+  }
+  #carrousel__large {
+    display: block;
+  }
+  .fieldContacto {
+    margin-right: 30%;
+  }
+  .fieldDomicilio .texto {
+    width: 60%;
+  }
+  .productosDestacados__stars {
+    margin-left: 35px;
+  }
+}
+/* --- Fin Desktop --- */
+@media (max-width: 768px) and (orientation: landscape) {
+  #header__logo {
+    width: 15%;
+    margin-top: 10px;
+  }
+  .fieldContacto {
+    margin-right: auto;
+  }
+  .clubDeVinos__img {
+    display: inline-block;
+    align-items: baseline;
+    width: 450px;
+  }
+  .clubDeVinos__imgBig {
+    display: none;
+  }
+  #carrousel__small {
+    display: block;
+    width: 70%;
+    margin: auto;
+  }
+  #carrousel__large {
+    display: none;
+  }
+  #listadoProductos {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    /*grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;*/
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 25px;
+  }
+}
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -820,10 +847,18 @@ footer h4 {
   justify-content: center;
   align-items: center;
 }
+#productosDestacados td {
+  text-align: center;
+}
 
 .productosDestacados__nombre {
-  text-align: center;
   vertical-align: bottom;
+  height: auto;
+}
+
+.productosDestacados__stars {
+  height: 20px;
+  display: none;
 }
 
 .productosDestacados__image {
@@ -833,6 +868,13 @@ footer h4 {
 }
 .productosDestacados__image:hover {
   width: 90%;
+  -webkit-animation: transparencia 1s;
+          animation: transparencia 1s;
+}
+.productosDestacados__image:hover + .productosDestacados__stars {
+  display: block;
+  -webkit-animation: ver_puntuacion 1.5s;
+          animation: ver_puntuacion 1.5s;
 }
 
 /* Eventos destacados: index */
@@ -892,42 +934,48 @@ footer h4 {
   margin-bottom: 15px;
   transition: width 1s;
 }
-.evento__imgEvento:hover {
-  width: 450px;
-}
 
 /* Fin eventos destacados*/
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
 /* --- Keyframes --- */
 @-webkit-keyframes transparencia {
   0% {
-    opacity: 85%;
-    font-size: 18px;
+    opacity: 100%;
   }
-  50% {
-    opacity: 55%;
-    font-size: 20px;
+  70% {
+    opacity: 80%;
   }
   100% {
-    opacity: 85%;
-    font-size: 18px;
+    opacity: 100%;
   }
 }
 @keyframes transparencia {
   0% {
-    opacity: 85%;
-    font-size: 18px;
+    opacity: 100%;
   }
-  50% {
-    opacity: 55%;
-    font-size: 20px;
+  70% {
+    opacity: 80%;
   }
   100% {
-    opacity: 85%;
-    font-size: 18px;
+    opacity: 100%;
   }
+}
+@-webkit-keyframes ver_puntuacion {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 20px;
+  }
+}
+@keyframes ver_puntuacion {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 20px;
+  }
+}
+* {
+  margin: 0px;
+  padding: 0px;
 }/*# sourceMappingURL=styles.css.map */

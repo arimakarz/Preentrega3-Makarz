@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:wght@100;200&display=swap');
 @import "colors";
 @import "buttons";
-@import "media";
 @import "header";
 @import "body";
+@import "media";
 @import "forms";
 @import "footer";
 @import "destacados";
@@ -12,20 +12,4 @@
 *{
     margin: 0px;
     padding: 0px;
-}
-
-/* --- Keyframes --- */
-@keyframes transparencia {
-    0%{
-        opacity: 85%;
-        font-size: 18px;
-    }
-    50%{
-        opacity: 55%;
-        font-size: 20px;
-    }
-    100%{
-        opacity: 85%;
-        font-size: 18px;
-    }
 }
