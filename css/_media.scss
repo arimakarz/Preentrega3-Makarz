@@ -1,3 +1,13 @@
+/* --- Generar tienda --- */
+
+@mixin generarGridTienda($columnas, $filas) {
+    grid-template-columns: repeat($columnas, auto);
+    grid-template-rows: repeat($filas, auto);
+    justify-content: center;
+}
+
+/* --- Fin Tienda --- */
+
 /* ---Mobile--- */
 
 @media screen and (min-width: 320px){
@@ -88,11 +98,14 @@
     }
 
     #listadoProductos{
-        grid-template-columns: repeat(2, auto);
+        $cantFilas: 4;
+        $cantCol: 2;
+        @include generarGridTienda($cantCol, $cantFilas);
+        /*grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(4, auto);
+        justify-content: center;*/
         width: 100%;
         margin: 25px 5px;
-        justify-content: center;
     }
 
     #clubDeVinos{
@@ -117,7 +130,12 @@
     }
 
     .evento__imgEvento{
-        width: 300px;
+        width: 80%;
+        transition: width 1s;
+
+        &:hover{
+            width: 90%;
+        }
     }
 
     .form__textarea{
@@ -150,10 +168,12 @@
 
 @media screen and (min-width: 768px){
     #listadoProductos{
-        grid-template-columns: repeat(3, auto);
+        @include generarGridTienda(3, 3);
+        /*grid-template-columns: repeat(3, auto);
         grid-template-rows: repeat(3, auto);
-        width: 100%;
+        justify-content: center;*/
         margin: 20px 5px;
+        width: 100%;
     }
 
     #clubDeVinos{
@@ -290,8 +310,10 @@
     }
 
     #listadoProductos{
-        grid-template-columns: repeat(4, auto);
+        @include generarGridTienda(4, 2);
+        /*grid-template-columns: repeat(4, auto);
         grid-template-rows: repeat(2, auto);
+        justify-content: center;*/
         width: 50%;
         margin-left: 25%;
         margin-top: 25px;
@@ -316,7 +338,11 @@
     }
 
     .evento__imgEvento{
-        width: 350px;
+        width: 20%;
+
+        &:hover{
+            width: 25%;
+        }
     }
 
     .body__img-portada{
@@ -343,6 +369,10 @@
 
     .fieldDomicilio .texto{
         width: 60%;
+    }
+
+    .productosDestacados__stars{
+        margin-left: 35px;
     }
 }
 
@@ -379,8 +409,10 @@
     }
 
     #listadoProductos{
-        grid-template-columns: repeat(3, auto);
+        @include generarGridTienda(3, 3);
+        /*grid-template-columns: repeat(3, auto);
         grid-template-rows: repeat(3, auto);
+        justify-content: center;*/
         width: 50%;
         margin-left: 25%;
         margin-top: 25px;
