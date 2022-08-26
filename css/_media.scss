@@ -370,10 +370,6 @@
     .fieldDomicilio .texto{
         width: 60%;
     }
-
-    .productosDestacados__stars{
-        margin-left: 35px;
-    }
 }
 
 /* --- Fin Desktop --- */
@@ -386,6 +382,14 @@
 
     .fieldContacto{
         margin-right: auto;
+    }
+
+    .evento__imgEvento{
+        width: 40%;
+
+        &:hover{
+            width: 50%;
+        }
     }
 
     .clubDeVinos__img{

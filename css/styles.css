@@ -563,9 +563,6 @@ section article table {
   .fieldDomicilio .texto {
     width: 60%;
   }
-  .productosDestacados__stars {
-    margin-left: 35px;
-  }
 }
 /* --- Fin Desktop --- */
 @media (max-width: 768px) and (orientation: landscape) {
@@ -575,6 +572,12 @@ section article table {
   }
   .fieldContacto {
     margin-right: auto;
+  }
+  .evento__imgEvento {
+    width: 40%;
+  }
+  .evento__imgEvento:hover {
+    width: 50%;
   }
   .clubDeVinos__img {
     display: inline-block;
@@ -858,7 +861,6 @@ footer h4 {
 
 .productosDestacados__stars {
   height: 20px;
-  display: none;
 }
 
 .productosDestacados__image {
@@ -870,11 +872,6 @@ footer h4 {
   width: 90%;
   -webkit-animation: transparencia 1s;
           animation: transparencia 1s;
-}
-.productosDestacados__image:hover + .productosDestacados__stars {
-  display: block;
-  -webkit-animation: ver_puntuacion 1.5s;
-          animation: ver_puntuacion 1.5s;
 }
 
 /* Eventos destacados: index */
@@ -941,7 +938,7 @@ footer h4 {
   0% {
     opacity: 100%;
   }
-  70% {
+  50% {
     opacity: 80%;
   }
   100% {
@@ -952,27 +949,11 @@ footer h4 {
   0% {
     opacity: 100%;
   }
-  70% {
+  50% {
     opacity: 80%;
   }
   100% {
     opacity: 100%;
-  }
-}
-@-webkit-keyframes ver_puntuacion {
-  0% {
-    height: 0px;
-  }
-  100% {
-    height: 20px;
-  }
-}
-@keyframes ver_puntuacion {
-  0% {
-    height: 0px;
-  }
-  100% {
-    height: 20px;
   }
 }
 * {
