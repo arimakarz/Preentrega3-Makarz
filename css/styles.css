@@ -120,6 +120,11 @@ header {
   color: white;
 }
 
+#cantItems {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
 /*-----Fin del diseño del header-----*/
 body {
   font-family: "Montserrat", sans-serif;
@@ -242,6 +247,13 @@ section article table {
 .card-text {
   font-weight: bold;
   font-size: 16px;
+}
+
+.card-cantidad {
+  width: 50px;
+  display: inline;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 /* Fin de Tienda de productos */
@@ -728,6 +740,13 @@ section article table {
 .card-text {
   font-weight: bold;
   font-size: 16px;
+}
+
+.card-cantidad {
+  width: 50px;
+  display: inline;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 /* Fin de Tienda de productos */

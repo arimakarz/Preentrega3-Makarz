@@ -30,45 +30,44 @@ class Compra{
     }
 
     AgregarProducto(){
-        let prodIngresado = "";
+        let nombreProducto = "";
         let cantidadProducto = 0;
 
-        prodIngresado = (prompt("Ingrese el id del producto. \n'Listo' finaliza y confirma la compra. \n'Cancelar' cancela la compra.")).toUpperCase();
-        while((prodIngresado != "LISTO") && (prodIngresado != "CANCELAR")){
-            let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == prodIngresado));
-
-            if (posProducto != -1){
-                let idProducto = listaProductos[posProducto].id;
-
+        nombreProducto = (prompt("Ingrese el nombre del producto. \n'Listo' finaliza y confirma la compra. \n'Cancelar' cancela la compra.")).toUpperCase();
+        while((nombreProducto != "LISTO") && (nombreProducto != "CANCELAR")){
+            //let idProducto = listaProductos.indexOf(nombreProducto);
+            let idProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.descripcion == nombreProducto));
+    
+            if (idProducto != -1){
                 do{
                     cantidadProducto = parseInt(prompt("Ingrese la cantidad"));
                     if (cantidadProducto <= 0){
                         alert("Cantidad inválida. Ingrese nuevamente.");
                     }
-                }while((cantidadProducto <= 0) || !(isInt(cantidadProducto)));;
+                }while(cantidadProducto <= 0);
 
-                if (cantidadProducto <= listaProductos[posProducto].stock){
-                    let posProductoExistente = this.Productos.indexOf(this.Productos.find((elemento) => elemento.idProducto == idProducto));
-                    if (posProductoExistente != -1){
-                        let cantActual = this.Productos[posProductoExistente].cantidadProducto;
-                        this.Productos.splice(posProductoExistente, 1);
+                if (cantidadProducto <= listaProductos[idProducto].stock){
+                    let indexProducto = this.Productos.indexOf(this.Productos.find((elemento) => elemento.idProducto == idProducto));
+                    if (indexProducto != -1){
+                        let cantActual = this.Productos[indexProducto].cantidadProducto;
+                        this.Productos.splice(indexProducto, 1);
                         cantidadProducto += cantActual;
                     }
                     this.Productos.push({idProducto, cantidadProducto});
                     Producto.RestarStock(idProducto, cantidadProducto);
                 }else{
-                    alert(`No hay suficiente stock de ese producto. Quedan ${listaProductos[posProducto].stock} unidades.`);
+                    alert(`No hay suficiente stock de ese producto. Quedan ${listaProductos[idProducto].stock} unidades.`);
                 }
             }else{
                 alert("No existe el producto. Ingrese nuevamente");
             }
 
-            prodIngresado = (prompt("Ingrese el id del producto. \n'Listo' finaliza y confirma la compra. \n'Cancelar' cancela la compra.")).toUpperCase();
+            nombreProducto = (prompt("Ingrese el nombre del producto. \n'Listo' finaliza y confirma la compra. \n'Cancelar' cancela la compra.")).toUpperCase();
         }
         
-        if(prodIngresado == "LISTO"){
+        if(nombreProducto == "LISTO"){
             return this;
-        }else if (prodIngresado == "CANCELAR"){
+        }else if (nombreProducto == "CANCELAR"){
             this.CancelarCompra();
             return this;
         }
@@ -78,9 +77,8 @@ class Compra{
         console.log(`Nro Compra: ${this.nroCompra}`);
         console.log(` Producto  |  Precio  |  Cantidad  |  Subtotal`);
         this.Productos.forEach(prod => {
-            let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == prod.idProducto));
-            let subtotal = (listaProductos[posProducto].precio) * prod.cantidadProducto;
-            console.log(`${listaProductos[posProducto].descripcion} | $${listaProductos[posProducto].precio} | ${prod.cantidadProducto} | $${subtotal}`);
+            let subtotal = (listaProductos[prod.idProducto].precio) * prod.cantidadProducto;
+            console.log(`${listaProductos[prod.idProducto].descripcion} | $${listaProductos[prod.idProducto].precio} | ${prod.cantidadProducto} | $${subtotal}`);
             this.Total += subtotal;
         });
         console.log(`Subtotal: $${this.Total}`);
@@ -146,6 +144,8 @@ if (ValidarEdad(edadCliente)){
     let listaDeCompra = [];
     let nuevaCompra = new Compra(1, listaDeCompra, 0, "activa");
     nuevaCompra = nuevaCompra.AgregarProducto();
+
+    console.log(nuevaCompra);
 
     if (nuevaCompra.Estado == "activa"){
         let codigoDescuento = prompt("Ingrese código de descuento. 'N' si no tiene un código.");
