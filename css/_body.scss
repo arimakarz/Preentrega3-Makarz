@@ -107,13 +107,61 @@ section{
 }
 
 .card{
-    border: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    --bs-card-border-color: none;
 }
 
-.card-img-top:hover{
-    /*background-color: lightgray;*/
-    -webkit-transform: scale(1.1, 1.1);
-    transform: scale(1.1, 1.1);
+.card-img-top{
+    width: 160px;
+    align-self: center;
+    position:relative;
+    z-index: 2;
+    &:hover{
+        /*background-color: lightgray;*/
+        -webkit-transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1);
+        
+        + .card-moreinfo{ 
+            width: 5rem;
+            height: 2rem;
+            display: block;
+            transform: translateX(0);
+            transition: 2s ease;
+            font-size: 16px;
+        }
+    }
+}
+
+.card-img-nostock{
+    opacity: 50%;
+    width: 160px;
+    display: block;
+    z-index: 4;
+    transform: translateY(-160px);
+    position: absolute;
+    justify-self: center;
+}
+
+.card-moreinfo{
+    // width: 10px;
+    // height: 10px;
+    // font-size: 10px;
+	position: absolute;
+    z-index: 3;
+    top: 80px;
+    display: none;
+    left: 25%;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    width: 5rem;
+    height: 2rem;
+
+    &:hover{
+        opacity: 75%;
+        display: block;
+    }
 }
 
 .card-title{
@@ -126,10 +174,23 @@ section{
 }
 
 .card-cantidad{
-    width: 50px;
-    display: inline;
-    margin-bottom: 10px;
-    text-align: center; 
+    width: 120px;
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 10%;
+    justify-content: center;
+    align-self: center;
+
+    label{
+        align-self: center;
+    }
+
+    input{
+        width: 50px;
+        text-align: center;
+        align-self: center;
+        margin: 5px 0px;
+    }
 }
 
 /* Fin de Tienda de productos */
@@ -161,3 +222,102 @@ section{
 }
 
 /* --- Fin Carrousel de imágenes --- */
+
+/* --- Carrito de compras --- */
+
+#carrito{
+    text-align: center;
+    width: auto;
+    margin-left: 25%;
+
+    th{
+      font-size: 16px;
+      font-weight: bold;
+      background-color: $colorWine;
+      color: white;
+    }
+
+    tr{
+        color: $colorWine;
+        height: 20px;
+        border-top: 1px solid;
+        align-content: center;
+
+        img{
+            padding-bottom: 5px;
+        }
+    }
+
+    .img-nostock{
+        opacity: 30%;
+    }
+
+    .descripcion{
+        width: 300px;
+    }
+
+    .colClasica{
+        width: 100px;
+    }
+
+    .colEliminar{
+        width: 30px;
+    }
+}
+
+#datosCompra{
+    display: flex;
+    flex-flow: column;
+    margin-right: 35%;
+    row-gap: 15px;
+}
+
+#validarCupon_invalido{
+    color: red;
+    margin-left: 40%;
+    visibility: hidden;
+}
+
+.mostrar{
+    visibility: visible;
+}
+/* --- Fin Carrito de compras --- */
+
+
+#mas-info-overlay {
+    position: fixed;
+    z-index: 1;
+    height: 250px;
+    width: 50%;
+    opacity: 0%;
+    transform: translateX(350px);
+    transition: 2s ease-out;
+    background-color: $colorBeige;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#mas-info-overlay.open {
+    opacity: 100%;
+    z-index: 10;
+    word-wrap: break-word;
+  }
+
+.mas-info {
+    position: fixed;
+}
+
+#close-btn {
+    position: fixed;
+    font-size: 1.5rem;
+    text-align: right;
+    float: right;
+    margin: .5em 2em 0 0;
+    color: black;
+    cursor: pointer;
+}
+
+.masInfo_texto{
+    text-align: justify;
+    text-justify: inter-word;
+}

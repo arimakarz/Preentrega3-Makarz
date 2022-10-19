@@ -1,12 +1,21 @@
+const botones = document.getElementsByClassName("boton-addcart");
+const cantidades = document.getElementsByClassName("card-cantidad-text");
+const cantItems = document.getElementById("cantItems");
+const botonesInfo = document.getElementsByClassName("card-moreinfo");
+const ventanaMasInfo = document.querySelector("#mas-info-overlay");
+const cerrarMasInfo = document.querySelector("#close-btn");
+const infoProducto = document.querySelector("#infoProducto");
+
+let cantidadItems = 0;
 let listaProductos = [
-    {id: 1, descripcion: "LUIGI BOSCA CABERNET", precio: 1000, stock: 10}, 
-    {id: 2, descripcion: "JORGE RUBIO GRAN RESERVA", precio: 1500, stock: 10}, 
-    {id: 3, descripcion: "JORGE RUBIO MALBEC", precio: 1250, stock: 10},
-    {id: 4, descripcion: "ANIMAL ORGANICO", precio: 1299, stock: 0},
-    {id: 5, descripcion: "NUCHA ORGANICO", precio: 2550, stock: 5},
-    {id: 6, descripcion: "SUSANA BALBO BRIOSO", precio: 5425, stock: 2},
-    {id: 7, descripcion: "SUSANA BALBO SIGNATURE", precio: 2700, stock: 3},
-    {id: 8, descripcion: "1905 BLEND", precio: 5500, stock: 1}];
+    {id: 1, descripcion: "LUIGI BOSCA CABERNET", precio: 1000, stock: 10, img: "producto1.png", informacion: "Luigi Bosca Cabernet Sauvignon es un tinto de color rojo rubí profundo y brillante. Sus aromas son sutiles y equi­librados, con notas de frutos negros, especias y cuero. En boca es jugoso y expresivo, con taninos finos y firmes que se agarran. De paladar franco y fresco, con buen cuerpo y carácter vivaz, y final profundo en el que se aprecian los ahumados de la crianza en barricas de roble. Es un vino referente del varietal, con gran potencial de guarda."}, 
+    {id: 2, descripcion: "JORGE RUBIO GRAN RESERVA", precio: 1500, stock: 10, img: "producto2.png"}, 
+    {id: 3, descripcion: "JORGE RUBIO MALBEC", precio: 1250, stock: 10, img: "producto3.png"},
+    {id: 4, descripcion: "ANIMAL ORGANICO", precio: 1299, stock: 4, img: "producto4.png"},
+    {id: 5, descripcion: "NUCHA ORGANICO", precio: 2550, stock: 0, img: "producto5.png"},
+    {id: 6, descripcion: "SUSANA BALBO BRIOSO", precio: 5425, stock: 2, img: "producto6.png"},
+    {id: 7, descripcion: "SUSANA BALBO SIGNATURE", precio: 2700, stock: 3, img: "producto7.png"},
+    {id: 8, descripcion: "VINO BOCA 1905 BLEND", precio: 5500, stock: 1, img: "producto8.png"}];
 
 class Producto {
     constructor(id, descripcion, precio, stock) {
@@ -29,48 +38,29 @@ class Compra{
         this.Estado = estado;
     }
 
-    AgregarProducto(){
-        let prodIngresado = "";
-        let cantidadProducto = 0;
+    Agregar(idProducto){
+        let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == idProducto));
 
-        prodIngresado = (prompt("Ingrese el id del producto. \n'Listo' finaliza y confirma la compra. \n'Cancelar' cancela la compra.")).toUpperCase();
-        while((prodIngresado != "LISTO") && (prodIngresado != "CANCELAR")){
-            let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == prodIngresado));
+        let cantidadProducto = parseInt(cantidades[posProducto].value);
 
-            if (posProducto != -1){
-                let idProducto = listaProductos[posProducto].id;
-
-                do{
-                    cantidadProducto = parseInt(prompt("Ingrese la cantidad"));
-                    if (cantidadProducto <= 0){
-                        alert("Cantidad inválida. Ingrese nuevamente.");
-                    }
-                }while((cantidadProducto <= 0) || !(isInt(cantidadProducto)));;
-
-                if (cantidadProducto <= listaProductos[posProducto].stock){
-                    let posProductoExistente = this.Productos.indexOf(this.Productos.find((elemento) => elemento.idProducto == idProducto));
-                    if (posProductoExistente != -1){
-                        let cantActual = this.Productos[posProductoExistente].cantidadProducto;
-                        this.Productos.splice(posProductoExistente, 1);
-                        cantidadProducto += cantActual;
-                    }
-                    this.Productos.push({idProducto, cantidadProducto});
-                    Producto.RestarStock(idProducto, cantidadProducto);
-                }else{
-                    alert(`No hay suficiente stock de ese producto. Quedan ${listaProductos[posProducto].stock} unidades.`);
+        if (cantidadProducto <= 0 || !(isInt(cantidadProducto))){
+            alert("Cantidad inválida")
+        }else{
+            if (cantidadProducto <= listaProductos[posProducto].stock){
+                let posProductoExistente = this.Productos.indexOf(this.Productos.find((elemento) => elemento.idProducto == idProducto));
+                if (posProductoExistente != -1){
+                    let cantActual = this.Productos[posProductoExistente].cantidadProducto;
+                    this.Productos.splice(posProductoExistente, 1);
+                    cantidadProducto += cantActual;
                 }
+                this.Productos.push({idProducto, cantidadProducto});
+                Producto.RestarStock(posProducto, cantidadProducto);
+                localStorage.setItem("itemsCarrito", JSON.stringify(this.Productos));
+                cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
+                cantItems.innerHTML = cantidadItems;
             }else{
-                alert("No existe el producto. Ingrese nuevamente");
+                alert(`No hay suficiente stock de ese producto. Quedan ${listaProductos[posProducto].stock} unidades.`);
             }
-
-            prodIngresado = (prompt("Ingrese el id del producto. \n'Listo' finaliza y confirma la compra. \n'Cancelar' cancela la compra.")).toUpperCase();
-        }
-        
-        if(prodIngresado == "LISTO"){
-            return this;
-        }else if (prodIngresado == "CANCELAR"){
-            this.CancelarCompra();
-            return this;
         }
     }
 
@@ -84,6 +74,42 @@ class Compra{
             this.Total += subtotal;
         });
         console.log(`Subtotal: $${this.Total}`);
+    }
+
+    Mostrar(){
+        let listaEjemplo = [
+            {idProducto: 1, cantidadProducto: 3},
+            {idProducto: 6, cantidadProducto: 1},
+            {idProducto: 2, cantidadProducto: 2},
+            {idProducto: 7, cantidadProducto: 1}
+        ]
+        console.log(listaEjemplo);
+        let tabla = document.getElementById("carrito");
+        //this.Productos.forEach(producto => {
+        listaEjemplo.forEach(producto => {
+            let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == producto.idProducto));
+            let subtotal = (listaProductos[posProducto].precio) * prod.cantidadProducto;
+
+            let item = document.createElement("tr");
+            item.setAttribute("idProducto", producto.idProducto);
+            tabla.append(item);
+
+            let colDescripcion = document.createElement("td");
+            colDescripcion.innerHTML = listaProductos[posProducto].descripcion;
+            tabla.append(colDescripcion);
+
+            let colPrecio = document.createElement("td");
+            colPrecio.innerHTML = listaProductos[posProducto].precio;
+            tabla.append(colPrecio);
+
+            let colCantidad = document.createElement("td");
+            colCantidad.innerHTML = producto.cantidadProducto;
+            tabla.append(colCantidad);
+            
+            let colSubtotal = document.createElement("td");
+            colSubtotal.innerHTML = subtotal;
+            tabla.append(colSubtotal);
+        })
     }
 
     //Cancelación de compra
@@ -134,30 +160,115 @@ function isInt(n){
     return Number(n) === n && n % 1 === 0;
 }
 
-//SIMULADOR
-do{
-    edadCliente = parseInt(prompt("Venta de productos alcohólicos. Por favor ingrese su edad para continuar."));
-    if ((edadCliente < 0) || !(isInt(edadCliente))){
-        alert("Edad inválida. Ingrese nuevamente.")
-    }
-}while((edadCliente < 0) || !(isInt(edadCliente)));
+const CargarProductos = (listaProductos) =>{
+    const contenedor = document.getElementById("listadoProductos");
+    contenedor.innerHTML ="";
+    listaProductos.forEach((producto)=>{
+        let item = document.createElement('div');
+        item.setAttribute("class", "card");
+        item.setAttribute("id", producto.id);
+        item.innerHTML = `
+           <img src="../assets/images/productos/${producto.img}" class="card-img-top" alt="${producto.img}">
+           `;
+        
+        if (producto.stock == 0){
+            item.innerHTML += `
+                <div>
+                    <img class="card-img-nostock" src="../assets/images/no-stock.png">
+                </div>
+            `;
+        }
 
-if (ValidarEdad(edadCliente)){
-    let listaDeCompra = [];
-    let nuevaCompra = new Compra(1, listaDeCompra, 0, "activa");
-    nuevaCompra = nuevaCompra.AgregarProducto();
-
-    if (nuevaCompra.Estado == "activa"){
-        let codigoDescuento = prompt("Ingrese código de descuento. 'N' si no tiene un código.");
-        nuevaCompra.MostrarCompra(nuevaCompra.Productos);
-        nuevaCompra.Total = nuevaCompra.ValidarDescuento(codigoDescuento.toLowerCase(), nuevaCompra.Total);
-        let cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
-        alert(`Muchas gracias por su compra. En el carrito hay ${cantidadItems} productos.`);
-        alert(`El importe total es $${nuevaCompra.Total}`);
-        console.log(`Total: $${nuevaCompra.Total}`);
-    }else{
-        alert("Compra cancelada.");
-    }
-}else{
-    alert("Prohibida la venta a menores de 18 años.");
+        item.innerHTML += `
+           <button class="card-moreinfo">+ INFO</button>
+           <div class="card-body">
+             <label class="card-title">${producto.descripcion}</label>
+             <p class="card-text">$${producto.precio}</p>
+             <div class="card-cantidad">    
+                <label for="cantidad">Cantidad:</label>
+                <input class="card-cantidad-text" type="number" placeholder="0" min="0" max="${producto.stock}"> 
+                <a href="#" id="${producto.id}" class="btn btn-primary boton-addcart" min="0" max="20">Comprar</a>
+             </div>
+         </div>
+        `;
+        
+        contenedor.appendChild(item);
+    });
+    console.log(botones);
 }
+
+const MostrarInfoProducto = (idProducto) => {
+    let unProducto = listaProductos.find((elemento) => elemento.id == idProducto);
+    infoProducto.innerHTML = `
+        <h3>${unProducto.descripcion}</h3>
+        <div>
+            <p class="masInfo_texto"> ${unProducto.informacion ?? 'Información no disponible.'}</p>
+        </div>
+        `;
+}
+
+CargarProductos(listaProductos);
+
+const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito")) || [];
+let idCompra = 1;
+nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
+localStorage.setItem("listaProductos", JSON.stringify(listaProductos));
+cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
+cantItems.innerHTML = cantidadItems;
+
+for(let i=0; i < botones.length; i++){
+    const boton = botones[i];
+    boton.onclick = (e) => {
+        e.preventDefault();
+        nuevaCompra.Agregar(e.target.id);
+    }
+}
+
+const finDeCompra = (e) => {
+    switch (e.keyCode){
+        case 70: //"F" finaliza compra
+            let codigoDescuento = prompt("Ingrese código de descuento. 'N' si no tiene un código.");
+            nuevaCompra.MostrarCompra();
+            nuevaCompra.Total = nuevaCompra.ValidarDescuento(codigoDescuento.toLowerCase(), nuevaCompra.Total);
+            console.log(`Cantidad de productos: ${cantidadItems} | Total: $${nuevaCompra.Total}`);
+            
+            idCompra++;
+            listaDeCompra = [];
+            nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
+            break;
+        case 67: //"C" cancela compra
+            nuevaCompra.CancelarCompra();
+            listaDeCompra = [];
+            nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
+    }
+}
+window.addEventListener("keydown", finDeCompra);
+
+//BUSQUEDA
+const btnBuscar = document.getElementById("btnBuscar");
+
+const Buscar = (textoABuscar) => {
+    console.log(textoABuscar);
+    let resultado = listaProductos.filter((elemento) => elemento.descripcion.toUpperCase().indexOf(textoABuscar.toUpperCase()) > -1);
+    return resultado;
+}
+
+btnBuscar.onclick = (e) =>{
+    e.preventDefault();
+    const textoBusqueda = document.getElementById("textoBusqueda").value;
+    let listaBusqueda = Buscar(textoBusqueda);
+    CargarProductos(listaBusqueda);
+}
+
+for(let i=0; i < botonesInfo.length; i++){
+    const boton = botonesInfo[i];
+    boton.addEventListener("click", (e)=>{
+        ventanaMasInfo.setAttribute("class", "open");
+        let idProd = boton.parentElement.id;
+        MostrarInfoProducto(idProd);
+    })
+}
+
+cerrarMasInfo.addEventListener("click", () => {
+    ventanaMasInfo.classList.remove("open");
+})

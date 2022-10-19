@@ -24,7 +24,7 @@
                 <h3><a href="../index.html"><img id="header__logo" src="../assets/images/logo/logo-chico.png" alt="Violeta Vinos"></a></h3>
                 <div class="header__buttons">
                     <img class="header__item" src="../assets/images/login-logo.png" alt="Login">
-                    <a href="compra.html"><img class="header__item" src="../assets/images/carrito-logo.png" alt="Carrito de compras"></a>
+                    <a href="compra.html"><img class="header__item header__item__carrito" src="../assets/images/carrito-logo.png" alt="Carrito de compras"></a>
                     <label id="cantItems">0</label>
                 </div>
             </div>
@@ -55,11 +55,11 @@
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2 texto" type="search" placeholder="Buscar..." aria-label="Search">
-                            <button class="btn btn-outline-success boton-buscar" type="submit">Search</button>
+                            <input id="textoBusqueda" class="form-control me-2 texto" type="search" placeholder="Buscar..." aria-label="Search">
+                            <button id="btnBuscar" class="btn btn-outline-success boton-buscar" type="submit">Search</button>
                         </form>
                     </div>
-                    <img class="header__item header__item-mobile" src="../assets/images/carrito-logo.png" alt="Carrito de compras">
+                    <a href="compra.html" id="verCarrito"><img class="header__item header__item-mobile" src="../assets/images/carrito-logo.png" alt="Carrito de compras"></a>
                 </div>
             </nav>
         </header>
@@ -68,15 +68,23 @@
             <img class="section__banner" src="../assets/images/banners/banner-top.jpg" alt="Imagen no disponible">
             <article>
                 <h3>Nuestros vinos</h3>
+                <div id="mas-info-overlay">
+                    <div class="mas-info">
+                      <i id="close-btn" class="fas fa-times">X</i>
+                        <div id="infoProducto">
+                            
+                        </div>
+                    </div>
+                </div>
                 <div id="listadoProductos">
-                    <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
+                    <!-- <div  class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
                         <img src="../assets/images/productos/producto1.png" class="card-img-top" alt="Luigi Bosca Cabernet">
                         <div class="card-body">
                             <label class="card-title">Luigi Bosca Cabernet</label>
                             <p class="card-text">$1000.00</p>
                             <label for="cantidad">Cantidad:</label>
                             <input type="number" class="card-cantidad" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <a href="#" id="1" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -85,9 +93,8 @@
                             <label class="card-title">Jorge Rubio Gran Reserva</label>
                             <p class="card-text">$1500.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="2" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -96,8 +103,8 @@
                             <label class="card-title">Jorge Rubio Malbec</label>
                             <p class="card-text">$1250.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="3" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -106,8 +113,8 @@
                             <label class="card-title">Vino orgánico Animal</label>
                             <p class="card-text">$1299.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="4" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -116,8 +123,8 @@
                             <label class="card-title">Vino Nucha Orgánico</label>
                             <p class="card-text">$2550.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="5" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -126,8 +133,8 @@
                             <label class="card-title">Susana Balbo Brioso</label>
                             <p class="card-text">$5425.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="6" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>                    
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -136,8 +143,8 @@
                             <label class="card-title">Susana Balbo Signature</label>
                             <p class="card-text">$2700.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="7" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
                     </div>
                     <div class="card listadoProductos__producto wow animate__animated animate__fadeIn" style="width: 9rem;">
@@ -146,10 +153,10 @@
                             <label class="card-title">Vino 1905 Blend</label>
                             <p class="card-text">$5500.00</p>
                             <label for="cantidad">Cantidad:</label>
-                            <input type="number" style="width: 50px; display: inline; margin-bottom: 10px; text-align: center;" placeholder="0" min="0">
-                            <a href="#" class="btn btn-primary boton-addcart">Comprar</a>
+                            <input type="number" class="card-cantidad" placeholder="0" min="0">
+                            <a href="#" id="8" class="btn btn-primary boton-addcart">Comprar</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </article>
         </section>

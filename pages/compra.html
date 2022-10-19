@@ -51,7 +51,7 @@
                                 <a class="nav-link menubar__link" href="contacto.html">Contacto</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menubar__link menubar__link-login" href="../index.html">Login</a>
+                                <a href="../index.html" class="nav-link menubar__link menubar__link-login">Login</a>
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
@@ -68,21 +68,29 @@
             <img class="section__banner" src="../assets/images/banners/banner-top.jpg" alt="Imagen no disponible">
             <h3>Resumen de compra</h3>
             <!--aca va el resumen de la compra-->
-            <table>
-                <th>Descripcion</th>
-                <th>Precio Unitario</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-                <tr>
-                    <td id="descripcionProducto"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-            <label id="importeTotal"></label>
+            <article>
+                <table id="carrito">
+                </table>
+            </article>
+            <article>
+                <div id="carritoVacio"></div>
+            </article>
+            <hr>
+            <div id="datosCompra">
+                <label id="importeDescuento">Descuento: $0</label>
+                <label id="importeTotal">Total: </label>
+            </div>
             <form action="">
+                <fieldset>
+                    <label for="cuponDescuento">APLICAR CUPÓN DE DESCUENTO</label>
+                    <input type="text" id="cuponDescuento">
+                    <button class="boton-envio" id="validarCupon">Validar</button>
+                    <div>
+                        <span id="validarCupon_invalido">Código inexistente</span>
+                    </div>
+                </fieldset>
                 <input type="submit" name="confirmarCompra" class="boton-envio" value="Finalizar compra">
+                <input type="submit" id="cancelarCompra" class="boton-envio boton-cancelarCompra" value="Vaciar carrito"></button>
             </form>
         </section>
         <!--pie de pagina-->

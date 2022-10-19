@@ -25,6 +25,19 @@
     padding: 0px 5px;
 }
 
+.boton-cancelarCompra{
+    margin-left: 20px;
+}
+
+.boton-eliminar{
+    width: 30px;
+    padding-bottom: 8px;
+    
+    &:hover{
+        content: url("../assets/images/open-trash.png");
+    }
+}
+
 .boton-addcart{
     @extend .boton;
     width: 120px;
@@ -43,6 +56,10 @@
     &:hover{
         background-color: black;
         color: white;
+    }
+    
+    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {  
+        opacity: 1; 
     }
 }
 
@@ -70,6 +87,13 @@
         background-color: white;
         color: black;
     }
+}
+
+.boton-disabled{
+    background-color: grey;
+    color: white;
+
+    &:hover{ background-color: grey;}
 }
 
 /* --- Fin Botones --- */

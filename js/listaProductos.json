@@ -1,0 +1,12 @@
+{"listaProductos": 
+    [
+        {"id": 1, "descripcion": "LUIGI BOSCA CABERNET", "precio": 1000, "stock": 10, "img": "producto1.png"}, 
+        {"id": 2, "descripcion": "JORGE RUBIO GRAN RESERVA", "precio": 1500, "stock": 10, "img": "producto2.png"}, 
+        {"id": 3, "descripcion": "JORGE RUBIO MALBEC", "precio": 1250, "stock": 10, "img": "producto3.png"},
+        {"id": 4, "descripcion": "ANIMAL ORGANICO", "precio": 1299, "stock": 4, "img": "producto4.png"},
+        {"id": 5, "descripcion": "NUCHA ORGANICO", "precio": 2550, "stock": 0, "img": "producto5.png"},
+        {"id": 6, "descripcion": "SUSANA BALBO BRIOSO", "precio": 5425, "stock": 2, "img": "producto6.png"},
+        {"id": 7, "descripcion": "SUSANA BALBO SIGNATURE", "precio": 2700, "stock": 3, "img": "producto7.png"},
+        {"id": 8, "descripcion": "VINO BOCA 1905 BLEND", "precio": 5500, "stock": 1, "img": "producto8.png"}
+    ]
+}
