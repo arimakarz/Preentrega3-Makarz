@@ -6,10 +6,12 @@ const ventanaMasInfo = document.querySelector("#mas-info-overlay");
 const cerrarMasInfo = document.querySelector("#close-btn");
 const infoProducto = document.querySelector("#infoProducto");
 
+const btnBuscar = document.getElementById("btnBuscar");
+
 let cantidadItems = 0;
 let listaProductos = [
-    {id: 1, descripcion: "LUIGI BOSCA CABERNET", precio: 1000, stock: 10, img: "producto1.png", informacion: "Luigi Bosca Cabernet Sauvignon es un tinto de color rojo rubí profundo y brillante. Sus aromas son sutiles y equi­librados, con notas de frutos negros, especias y cuero. En boca es jugoso y expresivo, con taninos finos y firmes que se agarran. De paladar franco y fresco, con buen cuerpo y carácter vivaz, y final profundo en el que se aprecian los ahumados de la crianza en barricas de roble. Es un vino referente del varietal, con gran potencial de guarda."}, 
-    {id: 2, descripcion: "JORGE RUBIO GRAN RESERVA", precio: 1500, stock: 10, img: "producto2.png"}, 
+    {id: 1, descripcion: "LUIGI BOSCA CABERNET", precio: 1000, stock: 10, img: "producto1.png", informacion: "Tinto de color rojo rubí profundo y brillante. Sus aromas son sutiles y equi­librados, con notas de frutos negros, especias y cuero. En boca es jugoso y expresivo, con taninos finos y firmes que se agarran. De paladar franco y fresco, con buen cuerpo y carácter vivaz, y final profundo en el que se aprecian los ahumados de la crianza en barricas de roble. Es un vino referente del varietal, con gran potencial de guarda."}, 
+    {id: 2, descripcion: "JORGE RUBIO GRAN RESERVA", precio: 1500, stock: 10, img: "producto2.png", informacion: "Un vino especial para cualquier momento"}, 
     {id: 3, descripcion: "JORGE RUBIO MALBEC", precio: 1250, stock: 10, img: "producto3.png"},
     {id: 4, descripcion: "ANIMAL ORGANICO", precio: 1299, stock: 4, img: "producto4.png"},
     {id: 5, descripcion: "NUCHA ORGANICO", precio: 2550, stock: 0, img: "producto5.png"},
@@ -77,15 +79,8 @@ class Compra{
     }
 
     Mostrar(){
-        let listaEjemplo = [
-            {idProducto: 1, cantidadProducto: 3},
-            {idProducto: 6, cantidadProducto: 1},
-            {idProducto: 2, cantidadProducto: 2},
-            {idProducto: 7, cantidadProducto: 1}
-        ]
-        console.log(listaEjemplo);
         let tabla = document.getElementById("carrito");
-        //this.Productos.forEach(producto => {
+
         listaEjemplo.forEach(producto => {
             let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == producto.idProducto));
             let subtotal = (listaProductos[posProducto].precio) * prod.cantidadProducto;
@@ -200,31 +195,18 @@ const CargarProductos = (listaProductos) =>{
 const MostrarInfoProducto = (idProducto) => {
     let unProducto = listaProductos.find((elemento) => elemento.id == idProducto);
     infoProducto.innerHTML = `
-        <h3>${unProducto.descripcion}</h3>
-        <div>
-            <p class="masInfo_texto"> ${unProducto.informacion ?? 'Información no disponible.'}</p>
-        </div>
+        <h3 class="masInfo_Titulo">${unProducto.descripcion}</h3>
+        <p class="masInfo_texto"> ${unProducto.informacion ?? 'Información no disponible.'}</p>
         `;
 }
 
-CargarProductos(listaProductos);
-
-const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito")) || [];
-let idCompra = 1;
-nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
-localStorage.setItem("listaProductos", JSON.stringify(listaProductos));
-cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
-cantItems.innerHTML = cantidadItems;
-
-for(let i=0; i < botones.length; i++){
-    const boton = botones[i];
-    boton.onclick = (e) => {
-        e.preventDefault();
-        nuevaCompra.Agregar(e.target.id);
-    }
+// ---Búsqueda de productos en Tienda
+const Buscar = (textoABuscar) => {
+    let resultado = listaProductos.filter((elemento) => elemento.descripcion.toUpperCase().indexOf(textoABuscar.toUpperCase()) > -1);
+    return resultado;
 }
 
-const finDeCompra = (e) => {
+/*const finDeCompra = (e) => {
     switch (e.keyCode){
         case 70: //"F" finaliza compra
             let codigoDescuento = prompt("Ingrese código de descuento. 'N' si no tiene un código.");
@@ -242,17 +224,39 @@ const finDeCompra = (e) => {
             nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
     }
 }
-window.addEventListener("keydown", finDeCompra);
 
-//BUSQUEDA
-const btnBuscar = document.getElementById("btnBuscar");
+window.addEventListener("keydown", finDeCompra);*/
 
-const Buscar = (textoABuscar) => {
-    console.log(textoABuscar);
-    let resultado = listaProductos.filter((elemento) => elemento.descripcion.toUpperCase().indexOf(textoABuscar.toUpperCase()) > -1);
-    return resultado;
+//Load de página
+const stringURL = new URLSearchParams(window.location.search);
+const textoBusqueda = stringURL.get("textoBusqueda");
+
+textoBusqueda ? CargarProductos(Buscar(textoBusqueda)) : CargarProductos(listaProductos);
+
+localStorage.setItem("listaProductos", JSON.stringify(listaProductos));
+const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito")) || [];
+let idCompra = 1;
+nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
+cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
+cantItems.innerHTML = cantidadItems;
+
+/*botones.forEach(boton => (e) => {
+    e.preventDefault();
+    nuevaCompra.Agregar(e.target.id);
+})*/
+
+
+//Agregar ítems al carrito
+for(let i=0; i < botones.length; i++){
+    const boton = botones[i];
+    boton.onclick = (e) => {
+        e.preventDefault();
+        console.log(e);
+        nuevaCompra.Agregar(e.target.id);
+    }
 }
 
+//Búsqueda de productos en Tienda
 btnBuscar.onclick = (e) =>{
     e.preventDefault();
     const textoBusqueda = document.getElementById("textoBusqueda").value;
@@ -260,6 +264,7 @@ btnBuscar.onclick = (e) =>{
     CargarProductos(listaBusqueda);
 }
 
+//Más información
 for(let i=0; i < botonesInfo.length; i++){
     const boton = botonesInfo[i];
     boton.addEventListener("click", (e)=>{
@@ -272,3 +277,4 @@ for(let i=0; i < botonesInfo.length; i++){
 cerrarMasInfo.addEventListener("click", () => {
     ventanaMasInfo.classList.remove("open");
 })
+

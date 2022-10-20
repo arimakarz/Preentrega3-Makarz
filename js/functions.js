@@ -17,9 +17,10 @@ const Buscar = (textoABuscar) => {
 
 btnBuscar.onclick = (e) =>{
     e.preventDefault();
-    let listaBusqueda = Buscar(textoBusqueda);
-    console.log(resultado);
-    return listaBusqueda;
+    const textoBusqueda = document.getElementById("textoBusqueda").value;
+    //let listaBusqueda = Buscar(textoBusqueda);
+    location.href = "tienda.html?textoBusqueda=" + textoBusqueda;
+    //CargarProductos(listaBusqueda);
 }
 
 contarItemsCarrito();

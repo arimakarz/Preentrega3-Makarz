@@ -13,14 +13,13 @@ const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito"));
 
 const Mostrar = () => {
     total = 0;
-    botonesEliminar = [];
+    let tabla = document.getElementById("carrito");
+    tabla.innerHTML = "";
+
     if ((listaDeCompra == null) || (listaDeCompra.length <= 0)){
-        console.log("vacio");
         const carritoVacio = document.getElementById("carritoVacio");
         carritoVacio.innerHTML = "No hay productos en el carrito de compras.";
     }else{
-        let tabla = document.getElementById("carrito");
-
         tabla.innerHTML = `
             <th class="descripcion">Descripción</th>
             <th class="colClasica">$/u</th>
@@ -56,26 +55,19 @@ const Mostrar = () => {
             total += subtotal; console.log(total);
 
             let colBtnEliminar = document.createElement("td");
-            // let btn = document.createElement('input');
-            // btn.id = producto.idProducto;
-            // btn.type = "button";
-            // btn.className = "boton-eliminar boton-envio";
-            // btn.value = "Eliminar";
-            //btn.innerHTML = '<img src="../assets/images/trash.jpeg"';
             let btn = document.createElement('img');
             btn.id = producto.idProducto;
             btn.className = "boton-eliminar";
             btn.setAttribute("src", "../assets/images/trash.png");
             colBtnEliminar.appendChild(btn);
-            //colBtnEliminar.innerHTML = "Eliminar";
-            //botonesEliminar.push(btn);
-            tabla.append(colBtnEliminar);
-
-            cantidadItems = listaDeCompra.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
-            cantItems.innerHTML = cantidadItems;
+            tabla.append(colBtnEliminar);    
         })
+        
         botonesEliminar = document.querySelectorAll(".boton-eliminar");
     }
+
+    cantidadItems = listaDeCompra.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
+    cantItems.innerHTML = cantidadItems;
 
     importeDescuento.innerHTML = `Descuento: $ 0`;
     importeTotal.innerHTML = `Total: $ ${total}`;
@@ -104,9 +96,7 @@ const ValidarDescuento = (codigo, total) =>{
 }
 
 const EliminarProducto = (idProducto) => {
-    console.log(`busco ${idProducto}`);
     let index = listaDeCompra.indexOf(listaDeCompra.find((el) => el.idProducto == idProducto))
-    console.log(index);
     listaDeCompra.splice(index, 1);
     localStorage.setItem("itemsCarrito", JSON.stringify(listaDeCompra));
     return listaDeCompra;
@@ -116,7 +106,6 @@ validarCupon.onclick = (e) =>{
     e.preventDefault();
     let codigoIngresado = document.getElementById("cuponDescuento").value;
     if ((codigoIngresado != "") && ((codigoIngresado != "viole10") && (codigoIngresado!= "viole20"))){
-        console.log("mostrar errir");
         validarCupon_invalido.classList.add("visible");
     }else{
         let descuento = ValidarDescuento(codigoIngresado, total);
@@ -129,22 +118,24 @@ validarCupon.onclick = (e) =>{
     }
 }
 
-vaciarCarrito.onclick = (e) => {
-    localStorage.removeItem("itemsCarrito");
-}
-
+//Load de página
 Mostrar();
 
+//Eliminar ítem del carrito de compras
 if (botonesEliminar.length > 0){
     for(let i = 0; i < botonesEliminar.length; i++){
         const boton = botonesEliminar[i];
         boton.onclick = (e) => {
             //e.preventDefault();
-            console.log(e);
             EliminarProducto(e.target.id);
             Mostrar();
         }
     }
+}
+
+//Vaciar carrito de compras
+vaciarCarrito.onclick = (e) => {
+    localStorage.removeItem("itemsCarrito");
 }
 
 

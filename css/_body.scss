@@ -283,7 +283,7 @@ section{
 }
 /* --- Fin Carrito de compras --- */
 
-
+/* --- Mas info en Tienda --- */
 #mas-info-overlay {
     position: fixed;
     z-index: 1;
@@ -301,7 +301,7 @@ section{
     opacity: 100%;
     z-index: 10;
     word-wrap: break-word;
-  }
+}
 
 .mas-info {
     position: fixed;
@@ -310,14 +310,19 @@ section{
 #close-btn {
     position: fixed;
     font-size: 1.5rem;
-    text-align: right;
     float: right;
-    margin: .5em 2em 0 0;
+    margin: 0px 300px;
     color: black;
     cursor: pointer;
+    z-index: 11;
+}
+
+.masInfo_Titulo{
+    text-align: left;
 }
 
 .masInfo_texto{
     text-align: justify;
     text-justify: inter-word;
+    padding: 20px;
 }
