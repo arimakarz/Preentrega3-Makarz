@@ -46,6 +46,7 @@ class Compra{
         let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == idProducto));
 
         let cantidadProducto = parseInt(cantidades[posProducto].value);
+        let cantidadARestar = cantidadProducto;
 
         if (cantidadProducto <= 0 || !(isInt(cantidadProducto))){
             alert("Cantidad inválida")
@@ -58,7 +59,7 @@ class Compra{
                     cantidadProducto += cantActual;
                 }
                 this.Productos.push({idProducto, cantidadProducto});
-                Producto.RestarStock(posProducto, cantidadProducto);
+                Producto.RestarStock(posProducto, cantidadARestar);
                 localStorage.setItem("listadoProductos", JSON.stringify(listaProductos));
                 localStorage.setItem("itemsCarrito", JSON.stringify(this.Productos));
                 cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
