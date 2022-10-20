@@ -41,7 +41,7 @@ const Mostrar = () => {
             tabla.append(colDescripcion);
 
             let colPrecio = document.createElement("td");
-            colPrecio.innerHTML = `$ ${listaProductos[posProducto].precio}`;
+            colPrecio.innerHTML = `$ ${listaProductos[posProducto].precio.toFixed(2)}`;
             tabla.append(colPrecio);
 
             let colCantidad = document.createElement("td");
@@ -49,10 +49,10 @@ const Mostrar = () => {
             tabla.append(colCantidad);
             
             let colSubtotal = document.createElement("td");
-            colSubtotal.innerHTML = `$ ${subtotal}`;
+            colSubtotal.innerHTML = `$ ${subtotal.toFixed(2)}`;
             tabla.append(colSubtotal);
 
-            total += subtotal; console.log(total);
+            total += subtotal; console.log(total.toFixed(2));
 
             let colBtnEliminar = document.createElement("td");
             let btn = document.createElement('img');
@@ -69,8 +69,8 @@ const Mostrar = () => {
     cantidadItems = listaDeCompra.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
     cantItems.innerHTML = cantidadItems;
 
-    importeDescuento.innerHTML = `Descuento: $ 0`;
-    importeTotal.innerHTML = `Total: $ ${total}`;
+    importeDescuento.innerHTML = `Descuento: $ 0.00`;
+    importeTotal.innerHTML = `Total: $ ${total.toFixed(2)}`;
 }
 
 const ValidarDescuento = (codigo, total) =>{
@@ -90,8 +90,8 @@ const ValidarDescuento = (codigo, total) =>{
             return -1;
             break;
     }
-    importeDescuento.innerHTML = `Descuento: $ ${descuento}`;
-    importeTotal.innerHTML = `Total: $ ${total}`;
+    importeDescuento.innerHTML = `Descuento: $ ${descuento.toFixed(2)}`;
+    importeTotal.innerHTML = `Total: $ ${total.toFixed(2)}`;
     return total;
 }
 

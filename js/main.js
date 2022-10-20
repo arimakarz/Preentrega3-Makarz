@@ -69,75 +69,12 @@ class Compra{
         }
     }
 
-    MostrarCompra(){
-        console.log(`Nro Compra: ${this.nroCompra}`);
-        console.log(` Producto  |  Precio  |  Cantidad  |  Subtotal`);
-        this.Productos.forEach(prod => {
-            let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == prod.idProducto));
-            let subtotal = (listaProductos[posProducto].precio) * prod.cantidadProducto;
-            console.log(`${listaProductos[posProducto].descripcion} | $${listaProductos[posProducto].precio} | ${prod.cantidadProducto} | $${subtotal}`);
-            this.Total += subtotal;
-        });
-        console.log(`Subtotal: $${this.Total}`);
-    }
-
-    Mostrar(){
-        let tabla = document.getElementById("carrito");
-
-        listaEjemplo.forEach(producto => {
-            let posProducto = listaProductos.indexOf(listaProductos.find((elemento) => elemento.id == producto.idProducto));
-            let subtotal = (listaProductos[posProducto].precio) * prod.cantidadProducto;
-
-            let item = document.createElement("tr");
-            item.setAttribute("idProducto", producto.idProducto);
-            tabla.append(item);
-
-            let colDescripcion = document.createElement("td");
-            colDescripcion.innerHTML = listaProductos[posProducto].descripcion;
-            tabla.append(colDescripcion);
-
-            let colPrecio = document.createElement("td");
-            colPrecio.innerHTML = listaProductos[posProducto].precio;
-            tabla.append(colPrecio);
-
-            let colCantidad = document.createElement("td");
-            colCantidad.innerHTML = producto.cantidadProducto;
-            tabla.append(colCantidad);
-            
-            let colSubtotal = document.createElement("td");
-            colSubtotal.innerHTML = subtotal;
-            tabla.append(colSubtotal);
-        })
-    }
-
     //Cancelación de compra
     CancelarCompra(){
         this.NroCompra = -1;
         this.Productos = [];
         this.Total = 0;
         this.Estado = "cancelada";
-    }
-
-    //Validación de código de descuento
-    ValidarDescuento(codigo, total){
-        switch (codigo){
-            case "viole10":
-                console.log(`Descuento: -$${total * 0.1}`);
-                total = total * 0.9;
-                break;
-            case "viole20":
-                console.log(`Descuento: -$${total * 0.2}`);
-                total = total * 0.8;
-                break;
-            case "N", "n":
-                console.log(`Descuento: $0.00`);
-                break;
-            default:
-                alert("No existe ese código.");
-                console.log(`Descuento: $0.00`);
-                break;
-        }
-        return total;
     }
 }
 
@@ -181,7 +118,7 @@ const CargarProductos = (listaProductos) =>{
            <button class="card-moreinfo">+ INFO</button>
            <div class="card-body">
              <label class="card-title">${producto.descripcion}</label>
-             <p class="card-text">$${producto.precio}</p>
+             <p class="card-text">$${(producto.precio).toFixed(2)}</p>
              <div class="card-cantidad">    
                 <label for="cantidad">Cantidad:</label>
                 <input class="card-cantidad-text" type="number" placeholder="0" min="0" max="${producto.stock}"> 
@@ -209,27 +146,6 @@ const Buscar = (textoABuscar) => {
     return resultado;
 }
 
-/*const finDeCompra = (e) => {
-    switch (e.keyCode){
-        case 70: //"F" finaliza compra
-            let codigoDescuento = prompt("Ingrese código de descuento. 'N' si no tiene un código.");
-            nuevaCompra.MostrarCompra();
-            nuevaCompra.Total = nuevaCompra.ValidarDescuento(codigoDescuento.toLowerCase(), nuevaCompra.Total);
-            console.log(`Cantidad de productos: ${cantidadItems} | Total: $${nuevaCompra.Total}`);
-            
-            idCompra++;
-            listaDeCompra = [];
-            nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
-            break;
-        case 67: //"C" cancela compra
-            nuevaCompra.CancelarCompra();
-            listaDeCompra = [];
-            nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
-    }
-}
-
-window.addEventListener("keydown", finDeCompra);*/
-
 //Load de página
 const stringURL = new URLSearchParams(window.location.search);
 const textoBusqueda = stringURL.get("textoBusqueda");
@@ -242,12 +158,6 @@ let idCompra = 1;
 nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
 cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
 cantItems.innerHTML = cantidadItems;
-
-/*botones.forEach(boton => (e) => {
-    e.preventDefault();
-    nuevaCompra.Agregar(e.target.id);
-})*/
-
 
 //Agregar ítems al carrito
 for(let i=0; i < botones.length; i++){
