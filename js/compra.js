@@ -8,7 +8,7 @@ const vaciarCarrito = document.getElementById("cancelarCompra");
 
 let botonesEliminar;
 
-let listaProductos = JSON.parse(localStorage.getItem("listaProductos"));
+let listaProductos = JSON.parse(localStorage.getItem("listadoProductos"));
 const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito"));
 
 const Mostrar = () => {
@@ -97,7 +97,11 @@ const ValidarDescuento = (codigo, total) =>{
 
 const EliminarProducto = (idProducto) => {
     let index = listaDeCompra.indexOf(listaDeCompra.find((el) => el.idProducto == idProducto))
+    let cantidad = listaDeCompra[index].cantidadProducto;
     listaDeCompra.splice(index, 1);
+    let indexProducto = listaProductos.indexOf(listaProductos.find(el => el.id == idProducto));
+    listaProductos[indexProducto].stock += cantidad;
+    localStorage.setItem("listadoProductos", JSON.stringify(listaProductos));
     localStorage.setItem("itemsCarrito", JSON.stringify(listaDeCompra));
     return listaDeCompra;
 }
@@ -122,12 +126,13 @@ validarCupon.onclick = (e) =>{
 Mostrar();
 
 //Eliminar ítem del carrito de compras
-if (botonesEliminar.length > 0){
+if (botonesEliminar != null && botonesEliminar.length > 0){
     for(let i = 0; i < botonesEliminar.length; i++){
         const boton = botonesEliminar[i];
         boton.onclick = (e) => {
             //e.preventDefault();
             EliminarProducto(e.target.id);
+            location.reload();
             Mostrar();
         }
     }

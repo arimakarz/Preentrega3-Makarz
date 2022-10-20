@@ -9,7 +9,8 @@ const infoProducto = document.querySelector("#infoProducto");
 const btnBuscar = document.getElementById("btnBuscar");
 
 let cantidadItems = 0;
-let listaProductos = [
+
+let listaProductos = JSON.parse(localStorage.getItem("listadoProductos")) || [
     {id: 1, descripcion: "LUIGI BOSCA CABERNET", precio: 1000, stock: 10, img: "producto1.png", informacion: "Tinto de color rojo rubí profundo y brillante. Sus aromas son sutiles y equi­librados, con notas de frutos negros, especias y cuero. En boca es jugoso y expresivo, con taninos finos y firmes que se agarran. De paladar franco y fresco, con buen cuerpo y carácter vivaz, y final profundo en el que se aprecian los ahumados de la crianza en barricas de roble. Es un vino referente del varietal, con gran potencial de guarda."}, 
     {id: 2, descripcion: "JORGE RUBIO GRAN RESERVA", precio: 1500, stock: 10, img: "producto2.png", informacion: "Un vino especial para cualquier momento"}, 
     {id: 3, descripcion: "JORGE RUBIO MALBEC", precio: 1250, stock: 10, img: "producto3.png"},
@@ -29,6 +30,7 @@ class Producto {
 
     static RestarStock (idProducto, cantidad){
         listaProductos[idProducto].stock -= cantidad;
+        return listaProductos;
     }
 }
 
@@ -57,6 +59,7 @@ class Compra{
                 }
                 this.Productos.push({idProducto, cantidadProducto});
                 Producto.RestarStock(posProducto, cantidadProducto);
+                localStorage.setItem("listadoProductos", JSON.stringify(listaProductos));
                 localStorage.setItem("itemsCarrito", JSON.stringify(this.Productos));
                 cantidadItems = nuevaCompra.Productos.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
                 cantItems.innerHTML = cantidadItems;
@@ -233,7 +236,7 @@ const textoBusqueda = stringURL.get("textoBusqueda");
 
 textoBusqueda ? CargarProductos(Buscar(textoBusqueda)) : CargarProductos(listaProductos);
 
-localStorage.setItem("listaProductos", JSON.stringify(listaProductos));
+localStorage.setItem("listadoProductos", JSON.stringify(listaProductos));
 const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito")) || [];
 let idCompra = 1;
 nuevaCompra = new Compra(idCompra, listaDeCompra, 0, "activa");
