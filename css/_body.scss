@@ -92,6 +92,10 @@ section{
     width: 100%;
 }
 
+.tienda{
+    height: 80px;
+}
+
 /*----Fin Section----*/
 
 /* Tienda de productos */
@@ -283,15 +287,26 @@ section{
 }
 /* --- Fin Carrito de compras --- */
 
+/* --- Factura de compra --- */
+
+#resumenCompraConfirmada{
+    width: 60%;
+    margin-left: 20%;
+    background-color: white;
+    display: none;
+}
+
+/* --- Fin de factura de compra --- */
+
 /* --- Mas info en Tienda --- */
 #mas-info-overlay {
     position: fixed;
-    z-index: 1;
-    height: 250px;
+    display: none;
+    height: 230px;
     width: 50%;
     opacity: 0%;
-    transform: translateX(350px);
-    transition: 2s ease-out;
+    transform: translate(350px,-150px);
+    transition: 1s ease-out;
     background-color: $colorBeige;
     padding: 10px;
     border-radius: 8px;
@@ -301,6 +316,7 @@ section{
     opacity: 100%;
     z-index: 10;
     word-wrap: break-word;
+    display: block;
 }
 
 .mas-info {
@@ -326,3 +342,14 @@ section{
     text-justify: inter-word;
     padding: 20px;
 }
+
+#ventaProhibida{
+    background-color: $colorWine;
+    height: 500px;
+    color: $colorBeige;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 200px;
+}
+
+

@@ -2,11 +2,10 @@ const listaProductos = JSON.parse(localStorage.getItem("listaProductos"));
 const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito"));
 const cantItems = document.getElementById("cantItems");
 const btnBuscar = document.getElementById("btnBuscar");
-const textoBusqueda = document.getElementById("textoBusqueda").value;
+const textoBusqueda = document.getElementById("textoBusqueda")?.value || "";
 
 const contarItemsCarrito = () => {
-    console.log(listaDeCompra);
-    cantidadItems = listaDeCompra.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
+    cantidadItems = listaDeCompra?.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0) ?? 0;
     cantItems.innerHTML = cantidadItems;
 }
 
@@ -17,17 +16,10 @@ const Buscar = (textoABuscar) => {
 
 btnBuscar.onclick = (e) =>{
     e.preventDefault();
+    console.log(e)
     const textoBusqueda = document.getElementById("textoBusqueda").value;
-    //let listaBusqueda = Buscar(textoBusqueda);
-    location.href = "tienda.html?textoBusqueda=" + textoBusqueda;
-    //CargarProductos(listaBusqueda);
+    //location.href = "tienda.html?textoBusqueda=" + textoBusqueda;
 }
 
 contarItemsCarrito();
-
-
-
-
-
-
 

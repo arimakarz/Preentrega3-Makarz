@@ -5,11 +5,12 @@ const cantItems = document.getElementById("cantItems");
 const validarCupon = document.getElementById("validarCupon");
 const validarCupon_invalido = document.getElementById("validarCupon_invalido");
 const vaciarCarrito = document.getElementById("cancelarCompra");
+const finalizarCompra = document.getElementById("finalizarCompra");
 
 let botonesEliminar;
 
 let listaProductos = JSON.parse(localStorage.getItem("listadoProductos"));
-const listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito"));
+let listaDeCompra = JSON.parse(localStorage.getItem("itemsCarrito"));
 
 const Mostrar = () => {
     total = 0;
@@ -19,6 +20,7 @@ const Mostrar = () => {
     if ((listaDeCompra == null) || (listaDeCompra.length <= 0)){
         const carritoVacio = document.getElementById("carritoVacio");
         carritoVacio.innerHTML = "No hay productos en el carrito de compras.";
+        cantItems.innerHTML = "0";
     }else{
         tabla.innerHTML = `
             <th class="descripcion">Descripción</th>
@@ -64,13 +66,17 @@ const Mostrar = () => {
         })
         
         botonesEliminar = document.querySelectorAll(".boton-eliminar");
+    
+        contarItemsCarrito();
     }
-
-    cantidadItems = listaDeCompra.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0);
-    cantItems.innerHTML = cantidadItems;
 
     importeDescuento.innerHTML = `Descuento: $ 0.00`;
     importeTotal.innerHTML = `Total: $ ${total.toFixed(2)}`;
+}
+
+const contarItemsCarrito = () => {
+    cantidadItems = listaDeCompra?.reduce((acumulador, prod) => acumulador + prod.cantidadProducto, 0) ?? 0;
+    cantItems.innerHTML = cantidadItems;
 }
 
 const ValidarDescuento = (codigo, total) =>{
@@ -122,6 +128,30 @@ validarCupon.onclick = (e) =>{
     }
 }
 
+const mostrarCompraFinalizada = (metodoPago) =>{
+    const formularioPago = document.getElementById("formularioPago");
+    formularioPago.style.display = 'none';
+
+    botonesEliminar.forEach((boton)=>{
+        boton.style.display='none';    
+    })
+
+    const resumenCompraConfirmada = document.getElementById("resumenCompraConfirmada");
+    resumenCompraConfirmada.style.display = 'block';
+    resumenCompraConfirmada.innerHTML = `
+        <h3>¡SU COMPRA HA SIDO CONFIRMADA CON ÉXITO!</h3>
+
+        <p>Pronto le llegará a su casilla de mail las instrucciones para el pago.</p>
+
+        <p>Método de pago elegido: ${metodoPago}</p>
+
+    `;
+
+    listaDeCompra = [];
+    localStorage.removeItem("itemsCarrito");
+    contarItemsCarrito();
+}
+
 //Load de página
 Mostrar();
 
@@ -131,16 +161,42 @@ if (botonesEliminar != null && botonesEliminar.length > 0){
         const boton = botonesEliminar[i];
         boton.onclick = (e) => {
             //e.preventDefault();
-            EliminarProducto(e.target.id);
-            location.reload();
-            Mostrar();
+            swal({
+                title: "¿Estás seguro que deseas eliminar este producto?",
+                text: "Una vez eliminado, deberás volver a cargarlo en el carrito si lo deseas. \nSi habías cargado un cupón de descuento, deberás volver a cargarlo.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    EliminarProducto(e.target.id);
+                    swal("¡Producto eliminado existosamente!", {
+                        icon: "success",
+                    });
+                    setTimeout(() => {
+                        location.reload();
+                        Mostrar();
+                    }, 2000);
+                }
+            });
         }
     }
 }
 
 //Vaciar carrito de compras
 vaciarCarrito.onclick = (e) => {
+    listaDeCompra.forEach((producto)=>{
+        EliminarProducto(producto.idProducto);
+    })
     localStorage.removeItem("itemsCarrito");
 }
 
+finalizarCompra.onclick = (e) => {
+    e.preventDefault();
+    if (cantidadItems > 0){
+        const metodoPago = document.getElementById("metodoPago");
+        mostrarCompraFinalizada(metodoPago.value);
+    }
+}
 

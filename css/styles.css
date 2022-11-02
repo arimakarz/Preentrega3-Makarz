@@ -249,6 +249,10 @@ section article table {
   width: 100%;
 }
 
+.tienda {
+  height: 80px;
+}
+
 /*----Fin Section----*/
 /* Tienda de productos */
 #listadoProductos {
@@ -417,15 +421,24 @@ section article table {
 }
 
 /* --- Fin Carrito de compras --- */
+/* --- Factura de compra --- */
+#resumenCompraConfirmada {
+  width: 60%;
+  margin-left: 20%;
+  background-color: white;
+  display: none;
+}
+
+/* --- Fin de factura de compra --- */
 /* --- Mas info en Tienda --- */
 #mas-info-overlay {
   position: fixed;
-  z-index: 1;
-  height: 250px;
+  display: none;
+  height: 230px;
   width: 50%;
   opacity: 0%;
-  transform: translateX(350px);
-  transition: 2s ease-out;
+  transform: translate(350px, -150px);
+  transition: 1s ease-out;
   background-color: rgb(234, 210, 172);
   padding: 10px;
   border-radius: 8px;
@@ -435,6 +448,7 @@ section article table {
   opacity: 100%;
   z-index: 10;
   word-wrap: break-word;
+  display: block;
 }
 
 .mas-info {
@@ -459,6 +473,15 @@ section article table {
   text-align: justify;
   text-justify: inter-word;
   padding: 20px;
+}
+
+#ventaProhibida {
+  background-color: #451C17;
+  height: 500px;
+  color: rgb(234, 210, 172);
+  font-size: 24px;
+  text-align: center;
+  padding-top: 200px;
 }
 
 /* --- Generar tienda --- */
@@ -892,6 +915,10 @@ section article table {
   width: 100%;
 }
 
+.tienda {
+  height: 80px;
+}
+
 /*----Fin Section----*/
 /* Tienda de productos */
 #listadoProductos {
@@ -1060,15 +1087,24 @@ section article table {
 }
 
 /* --- Fin Carrito de compras --- */
+/* --- Factura de compra --- */
+#resumenCompraConfirmada {
+  width: 60%;
+  margin-left: 20%;
+  background-color: white;
+  display: none;
+}
+
+/* --- Fin de factura de compra --- */
 /* --- Mas info en Tienda --- */
 #mas-info-overlay {
   position: fixed;
-  z-index: 1;
-  height: 250px;
+  display: none;
+  height: 230px;
   width: 50%;
   opacity: 0%;
-  transform: translateX(350px);
-  transition: 2s ease-out;
+  transform: translate(350px, -150px);
+  transition: 1s ease-out;
   background-color: rgb(234, 210, 172);
   padding: 10px;
   border-radius: 8px;
@@ -1078,6 +1114,7 @@ section article table {
   opacity: 100%;
   z-index: 10;
   word-wrap: break-word;
+  display: block;
 }
 
 .mas-info {
@@ -1102,6 +1139,15 @@ section article table {
   text-align: justify;
   text-justify: inter-word;
   padding: 20px;
+}
+
+#ventaProhibida {
+  background-color: #451C17;
+  height: 500px;
+  color: rgb(234, 210, 172);
+  font-size: 24px;
+  text-align: center;
+  padding-top: 200px;
 }
 
 /* --- Formulario --- */
@@ -1221,6 +1267,26 @@ footer h4 {
   width: 90%;
   -webkit-animation: transparencia 1s;
           animation: transparencia 1s;
+}
+
+.productoDestacadoExtranjero {
+  display: flex;
+  flex-flow: column-nowrap;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.productoDestacadoExtranjero__imagen {
+  width: 40px;
+}
+
+.productoDestacadoExtranjero__nombre {
+  vertical-align: bottom;
+  text-align: center;
+  width: 200px;
+  font-size: 18px;
 }
 
 /* Eventos destacados: index */
