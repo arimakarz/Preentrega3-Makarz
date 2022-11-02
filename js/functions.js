@@ -18,7 +18,12 @@ btnBuscar.onclick = (e) =>{
     e.preventDefault();
     console.log(e)
     const textoBusqueda = document.getElementById("textoBusqueda").value;
-    //location.href = "tienda.html?textoBusqueda=" + textoBusqueda;
+    console.log(e)
+    if (location.pathname == "/index.html"){
+        location.href = "./pages/tienda.html?textoBusqueda=" + textoBusqueda;
+    }else{
+        location.href = "./tienda.html?textoBusqueda=" + textoBusqueda;
+    }
 }
 
 contarItemsCarrito();
